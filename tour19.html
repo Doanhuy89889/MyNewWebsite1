@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Indonesia – Malaysia – Singapore</title>
+     <link rel="stylesheet" href="chungtour.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="trangchu.js"></script>
+    <script src="Booking.js"></script>
+    <script src="search.js"></script>
+    <script src="payment.js"></script>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="trang1.html">Du Lịch và khám phá</a>
+            </div>
+            <nav class="main-nav">
+              <a href="trang1.html">Trang chủ</a>
+              <a href="trang2.html">Tour</a>
+              <a href="trang3.html">Voucher</a>
+              <a href="trang5.html">Chuyến bay</a>
+              <a href="trang4.html">Đăng nhập/Đăng ký</a>
+            </nav>
+            <div class="search-box">
+              <input type="text" id="search-input" oninput="showSuggestions()" placeholder="Tìm kiếm tour...">
+              <button>Tìm</button>
+              <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">Đổi giao diện</button>
+              <div id="suggestion-box" style="display: none;"></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="tour-detail-container">
+        <!-- ẢNH ĐẠI DIỆN -->
+        <div class="tour-banner">
+            <img src="img/asian/anh10.jpeg" alt="Tour Indonesia – Malaysia – Singapore">
+        </div>
+
+        <!-- TÊN & THÔNG TIN -->
+        <div class="tour-info">
+            <h1>Tour Indonesia – Malaysia – Singapore 12N11Đ</h1>
+            <p class="tour-short-desc">Khám phá ba quốc gia Đông Nam Á với nhiều điểm đến hấp dẫn</p>
+            <div class="tour-meta">
+                <span><strong>Thời gian:</strong> 12 ngày 11 đêm</span>
+                <span><strong>Khởi hành:</strong> 25/05/2025</span>
+                <span><strong>Nơi khởi hành:</strong> TP. Hồ Chí Minh</span>
+            </div>
+        </div>
+
+        <!-- GIÁ & ƯU ĐÃI -->
+        <div class="tour-pricing">
+            <div class="original-price">Giá gốc: <del>70.900.000đ</del></div>
+            <div class="discount-price">Giá ưu đãi: <span>67.900.000đ</span></div>
+            <button onclick="startBooking('tour')" class="btn-book">Đặt tour ngay</button>
+        </div>
+
+        <!-- GIỚI THIỆU & LỊCH TRÌNH -->
+        <div class="tour-description">
+            <h2>Giới thiệu tour</h2>
+            <p>Tham gia hành trình khám phá ba quốc gia Đông Nam Á sôi động: Indonesia với thiên nhiên hùng vĩ và văn hóa đa dạng, Malaysia với sự kết hợp hiện đại và truyền thống, và Singapore – viên ngọc của châu Á với những công trình kiến trúc độc đáo. Tour mang đến trải nghiệm phong phú về văn hóa, ẩm thực và cảnh quan.</p>
+
+            <h2>Lịch trình dự kiến</h2>
+            <ul class="tour-itinerary">
+                <li><strong>Ngày 1:</strong> TP.HCM – Jakarta – Tham quan Quảng trường Merdeka, Nhà thờ Istiqlal</li>
+                <li><strong>Ngày 2:</strong> Jakarta – Yogyakarta – Đền Borobudur, Đền Prambanan</li>
+                <li><strong>Ngày 3:</strong> Yogyakarta – Bali – Bãi biển Kuta, Đền Tanah Lot</li>
+                <li><strong>Ngày 4:</strong> Bali – Đền Uluwatu, Làng nghệ thuật Ubud</li>
+                <li><strong>Ngày 5:</strong> Bali – Kuala Lumpur – Tháp Đôi Petronas</li>
+                <li><strong>Ngày 6:</strong> Kuala Lumpur – Động Batu, Quảng trường Merdeka</li>
+                <li><strong>Ngày 7:</strong> Kuala Lumpur – Malacca – Thành phố lịch sử, Quảng trường Hà Lan</li>
+                <li><strong>Ngày 8:</strong> Malacca – Singapore – Gardens by the Bay</li>
+                <li><strong>Ngày 9:</strong> Singapore – Đảo Sentosa, Thủy cung SEA Aquarium</li>
+                <li><strong>Ngày 10:</strong> Singapore – Công viên Merlion, Vịnh Marina</li>
+                <li><strong>Ngày 11:</strong> Singapore – Mua sắm Orchard Road, Jewel Changi</li>
+                <li><strong>Ngày 12:</strong> Singapore – TP.HCM</li>
+            </ul>
+
+            <h2>Dịch vụ bao gồm</h2>
+            <ul>
+                <li>Vé máy bay khứ hồi theo hành trình</li>
+                <li>Khách sạn 3-4 sao tiêu chuẩn quốc tế (phòng đôi/đơn)</li>
+                <li>Hướng dẫn viên chuyên nghiệp tiếng Việt/Anh đi suốt tuyến</li>
+                <li>Vé tham quan tất cả các điểm theo chương trình</li>
+                <li>Ăn uống theo chương trình (bữa sáng, trưa, tối với đặc sản địa phương)</li>
+                <li>Bảo hiểm du lịch quốc tế (mức bồi thường tối đa 50.000 USD)</li>
+                <li>Xe đưa đón đời mới, máy lạnh</li>
+                <li>Visa nhập cảnh Malaysia và Singapore; miễn visa Indonesia</li>
+                <li>Nước uống hàng ngày và quà lưu niệm từ công ty</li>
+            </ul>
+        </div>
+
+        <!-- ĐÁNH GIÁ -->
+        <div class="tour-rating-box">
+            <h2>Đánh giá từ khách hàng</h2>
+            <div class="rating-stars">⭐ 4.0/5</div>
+        </div>
+    </div>
+    <footer>
+      <section id="about-us">
+        <h2 id="gt">Giới Thiệu Về Chúng Tôi</h2>
+    
+        <div class="footer-container">
+          <!-- Cột 1: Đối tác & Thông tin cần biết -->
+          <div class="footer-col">
+            <div class="ht">
+              <h3>Đối tác của chúng tôi</h3>
+              <a href="https://www.vietnamairlines.com/"><img src="img/VietNamAirlines.png"></a>
+              <a href="https://vnexpress.net/"><img src="img/vnExpress.png"></a>
+            </div>
+    
+            <div class="info-links">
+              <h3>Thông tin cần biết</h3>
+              <a href="điều khoản.html">Điều khoản</a><br>
+              <a href="chính sách bảo mật .html">Chính sách bảo mật</a>
+            </div>
+          </div>
+    
+          <!-- Cột 2: Chứng nhận & Liên hệ -->
+          <div class="footer-col">
+            <div class="certifications">
+              <h3>Chứng nhận</h3>
+              <img src="img/chứng nhận.png" alt="Chứng nhận 1" width="100">
+            </div>
+    
+            <div id="lh">
+              <p>Bạn cần giúp?</p>
+              <b>Hãy gọi</b><br>
+              <b>Hotline:</b> <p>1900000</p>
+              <p>Từ 7h30-21h hàng ngày</p>
+            </div>
+          </div>
+    
+          <!-- Cột 3: Mạng xã hội & Địa chỉ -->
+          <div class="footer-col">
+            <div class="social">
+              <b>Kết nối với chúng tôi</b>
+              <div class="icon-connect">
+                <a href="https://www.facebook.com/?locale=vi_VN"><i class='bx bxl-facebook-circle'></i></a>
+                <a href="https://www.instagram.com/accounts/login/"><i class='bx bxl-instagram'></i></a>
+                <a href="https://www.youtube.com/@KhoaiLangThang"><i class='bx bxl-youtube'></i></a>
+                <a href="https://www.tiktok.com/login?lang=vi-VN&redirect_url=https%3A%2F%2Fwww.tiktok.com%2Fupload%3Flang%3Dvi-VN"><i class='bx bxl-tiktok'></i></a>
+                <a href="https://developers.line.biz/en/services/line-login/"><i class='bx bxs-phone'></i></a>
+              </div>
+            </div>
+    
+            <div class="address">
+              <b>Địa chỉ:</b> 705/7/5A, Đại lộ Bình Dương, Chánh Mỹ, Thủ Dầu Một, Bình Dương
+            </div>
+            <div class="logo">
+              <img src="img/Chụp màn hình từ 2025-04-11 15-59-12.png" alt="map" width="400">
+            </div>
+          </div>
+        </div>
+      </section>
+    </footer>
+</body>
+</html>

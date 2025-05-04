@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Dubai – Abu Dhabi – Qatar</title>
+     <link rel="stylesheet" href="chungtour.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="trangchu.js"></script>
+    <script src="Booking.js"></script>
+    <script src="search.js"></script>
+    <script src="payment.js"></script>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="trang1.html">Du Lịch và khám phá</a>
+            </div>
+            <nav class="main-nav">
+              <a href="trang1.html">Trang chủ</a>
+              <a href="trang2.html">Tour</a>
+              <a href="trang3.html">Voucher</a>
+              <a href="trang5.html">Chuyến bay</a>
+              <a href="trang4.html">Đăng nhập/Đăng ký</a>
+            </nav>
+            <div class="search-box">
+              <input type="text" id="search-input" oninput="showSuggestions()" placeholder="Tìm kiếm tour...">
+              <button>Tìm</button>
+              <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">Đổi giao diện</button>
+              <div id="suggestion-box" style="display: none;"></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="tour-detail-container">
+        <!-- ẢNH ĐẠI DIỆN -->
+        <div class="tour-banner">
+            <img src="img/asian/anh10.jpeg" alt="Tour Dubai – Abu Dhabi – Qatar">
+        </div>
+
+        <!-- TÊN & THÔNG TIN -->
+        <div class="tour-info">
+            <h1>Tour Dubai – Abu Dhabi – Qatar 12N11Đ</h1>
+            <p class="tour-short-desc">Khám phá các thành phố hiện đại và sa mạc kỳ vĩ của Trung Đông</p>
+            <div class="tour-meta">
+                <span><strong>Thời gian:</strong> 12 ngày 11 đêm</span>
+                <span><strong>Khởi hành:</strong> 25/05/2025</span>
+                <span><strong>Nơi khởi hành:</strong> TP. Hồ Chí Minh</span>
+            </div>
+        </div>
+
+        <!-- GIÁ & ƯU ĐÃI -->
+        <div class="tour-pricing">
+            <div class="original-price">Giá gốc: <del>85.900.000đ</del></div>
+            <div class="discount-price">Giá ưu đãi: <span>85.900.000đ</span></div>
+            <button onclick="startBooking('tour')" class="btn-book">Đặt tour ngay</button>
+        </div>
+
+        <!-- GIỚI THIỆU & LỊCH TRÌNH -->
+        <div class="tour-description">
+            <h2>Giới thiệu tour</h2>
+            <p>Tham gia hành trình khám phá sự xa hoa của Trung Đông qua Dubai, Abu Dhabi và Qatar. Từ những tòa nhà chọc trời, sa mạc rộng lớn đến các di sản văn hóa độc đáo, tour mang đến trải nghiệm tuyệt vời với kiến trúc hiện đại, ẩm thực tinh tế và những hoạt động đầy thú vị.</p>
+
+            <h2>Lịch trình dự kiến</h2>
+            <ul class="tour-itinerary">
+                <li><strong>Ngày 1:</strong> TP.HCM – Dubai – Tham quan Dubai Mall, Đài phun nước Dubai</li>
+                <li><strong>Ngày 2:</strong> Dubai – Burj Khalifa, Chợ gia vị Spice Souk</li>
+                <li><strong>Ngày 3:</strong> Dubai – Desert Safari, BBQ tối trong sa mạc</li>
+                <li><strong>Ngày 4:</strong> Dubai – Dubai Frame, Bảo tàng Dubai</li>
+                <li><strong>Ngày 5:</strong> Dubai – Abu Dhabi – Sheikh Zayed Grand Mosque</li>
+                <li><strong>Ngày 6:</strong> Abu Dhabi – Louvre Abu Dhabi, Làng Di sản</li>
+                <li><strong>Ngày 7:</strong> Abu Dhabi – Ferrari World, Yas Island</li>
+                <li><strong>Ngày 8:</strong> Abu Dhabi – Doha – Museum of Islamic Art</li>
+                <li><strong>Ngày 9:</strong> Doha – Souq Waqif, Bờ biển Corniche</li>
+                <li><strong>Ngày 10:</strong> Doha – The Pearl-Qatar, Làng văn hóa Katara</li>
+                <li><strong>Ngày 11:</strong> Doha – Mua sắm Aspire Zone, Tự do khám phá</li>
+                <li><strong>Ngày 12:</strong> Doha – TP.HCM</li>
+            </ul>
+
+            <h2>Dịch vụ bao gồm</h2>
+            <ul>
+                <li>Vé máy bay khứ hồi theo hành trình</li>
+                <li>Khách sạn 4-5 sao tiêu chuẩn quốc tế (phòng đôi/đơn)</li>
+                <li>Hướng dẫn viên chuyên nghiệp tiếng Việt/Anh đi suốt tuyến</li>
+                <li>Vé tham quan tất cả các điểm theo chương trình</li>
+                <li>Ăn uống theo chương trình (bữa sáng, trưa, tối với ẩm thực Trung Đông và quốc tế)</li>
+                <li>Bảo hiểm du lịch quốc tế (mức bồi thường tối đa 50.000 USD)</li>
+                <li>Xe đưa đón đời mới, máy lạnh</li>
+                <li>Visa nhập cảnh UAE và Qatar</li>
+                <li>Nước uống hàng ngày và quà lưu niệm cao cấp</li>
+            </ul>
+        </div>
+
+        <!-- ĐÁNH GIÁ -->
+        <div class="tour-rating-box">
+            <h2>Đánh giá từ khách hàng</h2>
+            <div class="rating-stars">⭐ 4.0/5</div>
+        </div>
+    </div>
+    <footer>
+      <section id="about-us">
+        <h2 id="gt">Giới Thiệu Về Chúng Tôi</h2>
+    
+        <div class="footer-container">
+          <!-- Cột 1: Đối tác & Thông tin cần biết -->
+          <div class="footer-col">
+            <div class="ht">
+              <h3>Đối tác của chúng tôi</h3>
+              <a href="https://www.vietnamairlines.com/"><img src="img/VietNamAirlines.png"></a>
+              <a href="https://vnexpress.net/"><img src="img/vnExpress.png"></a>
+            </div>
+    
+            <div class="info-links">
+              <h3>Thông tin cần biết</h3>
+              <a href="điều khoản.html">Điều khoản</a><br>
+              <a href="chính sách bảo mật .html">Chính sách bảo mật</a>
+            </div>
+          </div>
+    
+          <!-- Cột 2: Chứng nhận & Liên hệ -->
+          <div class="footer-col">
+            <div class="certifications">
+              <h3>Chứng nhận</h3>
+              <img src="img/chứng nhận.png" alt="Chứng nhận 1" width="100">
+            </div>
+    
+            <div id="lh">
+              <p>Bạn cần giúp?</p>
+              <b>Hãy gọi</b><br>
+              <b>Hotline:</b> <p>1900000</p>
+              <p>Từ 7h30-21h hàng ngày</p>
+            </div>
+          </div>
+    
+          <!-- Cột 3: Mạng xã hội & Địa chỉ -->
+          <div class="footer-col">
+            <div class="social">
+              <b>Kết nối với chúng tôi</b>
+              <div class="icon-connect">
+                <a href="https://www.facebook.com/?locale=vi_VN"><i class='bx bxl-facebook-circle'></i></a>
+                <a href="https://www.instagram.com/accounts/login/"><i class='bx bxl-instagram'></i></a>
+                <a href="https://www.youtube.com/@KhoaiLangThang"><i class='bx bxl-youtube'></i></a>
+                <a href="https://www.tiktok.com/login?lang=vi-VN&redirect_url=https%3A%2F%2Fwww.tiktok.com%2Fupload%3Flang%3Dvi-VN"><i class='bx bxl-tiktok'></i></a>
+                <a href="https://developers.line.biz/en/services/line-login/"><i class='bx bxs-phone'></i></a>
+              </div>
+            </div>
+    
+            <div class="address">
+              <b>Địa chỉ:</b> 705/7/5A, Đại lộ Bình Dương, Chánh Mỹ, Thủ Dầu Một, Bình Dương
+            </div>
+            <div class="logo">
+              <img src="img/Chụp màn hình từ 2025-04-11 15-59-12.png" alt="map" width="400">
+            </div>
+          </div>
+        </div>
+      </section>
+    </footer>
+</body>
+</html>

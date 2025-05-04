@@ -1,0 +1,337 @@
+/* ======= CÀI ĐẶT CHUNG CHO BODY ======= */
+body {
+  font-family: Arial, sans-serif; 
+  margin: 0; 
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Giao diện sáng */
+body.light-theme {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* Giao diện tối */
+body.dark-theme {
+  background-color: #252525;
+  color: #eee;
+}
+
+/* ======= HEADER ======= */
+.main-header {
+  background-color: #fff;  
+  border-bottom: 1px solid #eee;  /* Viền dưới mờ */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  padding: 10px 0;  /* Khoảng cách bên trong header */
+  font-family: Arial, sans-serif; 
+  position: sticky;  /* Header cố định khi cuộn trang */
+  top: 0; 
+  z-index: 1000;
+}
+
+/* Header khi ở chế độ tối */
+body.dark-theme .main-header {
+  background-color: #333; 
+}
+
+/* Container trong header, chứa logo và menu */
+.main-header .container {
+  max-width: 1200px; 
+  margin: auto;  /* Căn giữa */
+  display: flex;  /* Sử dụng flexbox */
+  align-items: center;  /* Căn giữa theo chiều dọc */
+  justify-content: space-between;  /* Căn đều các phần tử */
+  padding: 0 20px;  /* Padding trái phải */
+  flex-wrap: wrap;  /* Cho phép các phần tử trong container quấn khi cần */
+}
+
+/* Logo trong header */
+.logo a {
+  font-size: 20px; 
+  font-weight: bold; 
+  text-decoration: none; 
+  color:#0077cc;
+}
+
+/* Màu logo khi ở chế độ tối */
+body.dark-theme .logo a {
+  color:#0077cc;
+}
+
+/* Menu điều hướng */
+.main-nav {
+  display: flex;  /* Sử dụng flexbox */
+  gap: 20px;  /* Khoảng cách giữa các mục menu */
+}
+
+/* Màu chữ menu theo chế độ sáng */
+body.light-theme .main-nav a {
+  color: #000;
+}
+
+/* Màu chữ menu theo chế độ tối */
+body.dark-theme .main-nav a {
+  color: #fff; 
+}
+
+/* Link trong menu */
+.main-nav a {
+  text-decoration: none; 
+  font-size: 14px; 
+  padding: 6px 0; 
+  transition: color 0.3s;
+}
+.main-nav a:hover {
+  color: #0077cc;  /* Màu khi hover */
+}
+
+/* ======= TÌM KIẾM ======= */
+.search-box {
+  display: flex;  /* Sử dụng flexbox */
+  gap: 6px;  /* Khoảng cách giữa các phần tử */
+  align-items: center;  /* Căn giữa theo chiều dọc */
+}
+
+/* Ô nhập tìm kiếm */
+.search-box input {
+  padding: 6px 10px;  /* Padding cho input */
+  font-size: 14px;  
+  border: 1px solid #ccc;
+  border-radius: 4px;  /* Bo góc */
+}
+
+/* Ô nhập tìm kiếm khi ở chế độ tối */
+body.dark-theme .search-box input {
+  background-color: #444; 
+  color: #eee;
+  border: 1px solid #666; 
+}
+
+/* Nút tìm kiếm */
+.search-box button {
+  padding: 6px 12px; 
+  background-color: #0077cc; 
+  color: #fff; 
+  border: none; 
+  border-radius: 4px;
+  cursor: pointer;  /* Con trỏ khi hover */
+}
+
+/* Nút tìm kiếm khi ở chế độ tối */
+body.dark-theme .search-box button {
+  background-color: #0077cc;
+}
+
+/* ======= CHUYỂN GIAO DIỆN THEME ======= */
+.theme-toggle {
+  padding: 6px 12px; 
+  background-color: #0077cc; 
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;  /* Con trỏ khi hover */
+}
+
+/* Nút chuyển theme khi ở chế độ tối */
+body.dark-theme .theme-toggle {
+  background-color: #0077cc; 
+}
+
+ /* ======= Suggestion Box ======= */
+ .suggestion-box {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  width: 240px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+}
+.suggestion-item {
+  padding: 8px 10px;
+  cursor: pointer;
+}
+.suggestion-item:hover {
+  background-color: #04bbe9;
+}
+/* ======= CHI TIẾT TOUR ======= */
+.tour-detail-container {
+  max-width: 900px;  /* Chiều rộng tối đa */
+  margin: auto; 
+  padding: 20px;  /* Padding xung quanh */
+  font-family: Arial, sans-serif; 
+}
+
+/* Ảnh banner tour */
+.tour-banner img {
+  width: 100%; 
+  border-radius: 10px; 
+  margin-bottom: 20px;  /* Khoảng cách dưới ảnh */
+}
+
+/* Tên tour */
+.tour-info h1 {
+  font-size: 28px;
+  margin-bottom: 10px;  /* Khoảng cách dưới */
+}
+
+/* Mô tả ngắn về tour */
+.tour-short-desc {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 15px; 
+}
+
+/* Màu chữ khi ở chế độ tối */
+body.dark-theme .tour-short-desc {
+  color: #ccc;
+}
+
+/* Thông tin tour (ngày khởi hành, thời gian) */
+.tour-meta span {
+  display: inline-block;  /* Hiển thị inline-block */
+  margin-right: 15px;
+  font-size: 14px; 
+  color: #555;
+}
+
+/* Màu chữ tour khi ở chế độ tối */
+body.dark-theme .tour-meta span {
+  color: #ccc; 
+}
+
+/* Giá tour */
+.tour-pricing {
+  margin: 20px 0;  /* Khoảng cách trên/dưới */
+}
+
+/* Giá gốc (có gạch chéo) */
+.original-price del {
+  color: #888; 
+}
+
+/* Giá gốc khi ở chế độ tối */
+body.dark-theme .original-price del {
+  color: #aaa; 
+}
+
+/* Giá khuyến mãi */
+.discount-price span {
+  font-size: 22px; 
+  color: red; 
+  font-weight: bold; 
+}
+
+/* Giá khuyến mãi khi ở chế độ tối */
+body.dark-theme .discount-price span {
+  color: #ff5555;  
+}
+
+/* Nút đặt tour */
+.btn-book {
+  margin-top: 10px;  /* Khoảng cách trên */
+  padding: 10px 20px;  
+  background: #0077cc; 
+  color: white; 
+  border: none; 
+  border-radius: 5px;
+  cursor: pointer;  
+  transition: 0.3s ease;  /* Hiệu ứng chuyển màu */
+}
+
+/* Hiệu ứng hover cho nút đặt tour */
+.btn-book:hover {
+  border: 2px solid #0077cc;  /* Thêm viền khi hover */
+  background-color: #005fa3;
+}
+
+/* Nút đặt tour khi ở chế độ tối */
+body.dark-theme .btn-book {
+  border: 1px solid #00bcd4;  /* Viền sáng */
+  box-shadow: 0 0 8px rgba(0, 188, 212, 0.4);  /* Hiệu ứng bóng */
+}
+.tour-tour-description h2{
+  color:aquamarine;
+}
+
+/* ======= FOOTER ======= */
+footer {
+  background-color: #000;  
+  color: #eee; 
+  padding: 30px; 
+  font-family: Arial, sans-serif; 
+}
+
+/* Text trung tâm trong footer */
+#gt {
+  text-align: center; 
+  font-size: 24px; 
+  margin-bottom: 20px;  /* Khoảng cách dưới */
+}
+
+/* Container footer */
+.footer-container {
+  display: flex;  
+  justify-content: space-between;  /* Căn đều các phần tử */
+  flex-wrap: wrap;  /* Cho phép quấn các phần tử */
+  gap: 30px;  /* Khoảng cách giữa các cột */
+}
+
+/* Cột trong footer */
+.footer-col {
+  flex: 1;  /* Chiếm không gian đều */
+  min-width: 250px;  /* Chiều rộng tối thiểu */
+}
+
+/* Tiêu đề cột trong footer */
+.footer-col h3, .footer-col b {
+  margin-top: 15px;  /* Khoảng cách trên */
+}
+
+/* Link trong footer */
+.footer-col a {
+  display: block;  /* Hiển thị block */
+  color: #007BFF;  
+  text-decoration: none; 
+  margin: 5px 0;  /* Khoảng cách trên/dưới */
+}
+
+/* Icon kết nối mạng xã hội */
+.icon-connect a {
+  font-size: 24px;  
+  color: #fff;  
+  transition: 0.3s;  /* Hiệu ứng chuyển màu */
+}
+
+/* Container icon kết nối */
+.icon-connect {
+  display: flex;  /* Sử dụng flexbox */
+  flex-direction: row;  /* Hướng hàng ngang */
+  gap: 10px;
+  margin-top: 10px;  /* Khoảng cách trên */
+}
+
+/* Hiệu ứng hover cho icon */
+.icon-connect a:hover {
+  color: #007BFF; 
+}
+
+/* Logo và chứng nhận */
+.certifications img, .logo img {
+  margin: 5px;  /* Khoảng cách giữa các hình ảnh */
+  border-radius: 5px; 
+}
+
+/* Responsive footer (hiển thị theo cột trên màn hình nhỏ) */
+@media (max-width: 768px) {
+  .footer-container {
+      flex-direction: column;  /* Hiển thị theo cột */
+      align-items: flex-start;  /* Căn trái */
+  }
+  .footer-col {
+      width: 100%; 
+  }
+}

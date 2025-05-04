@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="vn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Information</title>
+    <link rel="stylesheet" href="trang2.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="trangchu.js"></script>
+    <script src="Booking.js"></script>
+    <script src="search.js"></script></head>
+    <script src="trang2.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="trang1.html">Du Lịch và khám phá</a>
+            </div>
+            <nav class="main-nav">
+              <a href="trang1.html">Trang chủ</a>
+              <a href="trang2.html">Tour</a>
+              <a href="trang3.html">Voucher</a>
+              <a href="trang5.html">Chuyến bay</a>
+              <a href="trang4.html">Đăng nhập/Đăng ký</a>
+            </nav>
+            <div class="search-box">
+              <input type="text" id="search-input" oninput="showSuggestions()" placeholder="Tìm kiếm tour...">
+              <button>Tìm</button>
+              <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">Đổi giao diện</button>
+              <div id="suggestion-box" style="display: none;"></div>
+            </div>
+        </div>
+    </header>
+
+      <div class="tour-filter">
+        <label for="region-select">Chọn khu vực: </label>
+        <select id="region-select">
+          <option value="all">Tất cả</option>
+          <option value="domestic">Trong nước</option>
+          <option value="europe">Châu Âu</option>
+          <option value="asia">Châu Á</option>
+        </select>
+      </div>
+      
+<div class="tour-list">
+  <div class="tour-item" data-region="europe" onclick="goToTourPage('tour1.html')">
+    <div class="tour-label">Mẫu mới</div>
+    <div class="tour-img"><img src="img/anh1.jpeg" alt="Tour Pháp – Thụy Sĩ – Ý"></div>
+    <div class="tour-name">Tour Pháp – Thụy Sĩ – Ý 10N9Đ</div>
+    <div class="tour-desc">Khám phá vẻ đẹp cổ kính và lãng mạn của Tây Âu</div>
+    <div class="tour-price">Giá gốc: 76.900.000đ</div>
+    <div class="tour-sale">Giảm giá còn: 76.900.000đ</div>
+    <div class="tour-rating">⭐ 4.2 • Đã đặt 312</div>
+  </div>
+
+  <div class="tour-item" data-region="europe" onclick="goToTourPage('tour2.html')">
+    <div class="tour-label">Giảm 5 triệu</div>
+    <div class="tour-img"><img src="img/anh2.jpg" alt="Tour Pháp – Bỉ – Hà Lan – Đức – Thụy Sĩ"></div>
+    <div class="tour-name">Tour Pháp – Bỉ – Hà Lan – Đức – Thụy Sĩ 10N9Đ</div>
+    <div class="tour-desc">Hành trình 5 quốc gia – đậm chất văn hoá và kiến trúc</div>
+    <div class="tour-price">Giá gốc: 54.900.000đ</div>
+    <div class="tour-sale">Giảm giá còn: 49.900.000đ</div>
+    <div class="tour-rating">⭐ 4.5 • Đã đặt 417</div>
+  </div>
+
+  <div class="tour-item" data-region="europe" onclick="goToTourPage('tour3.html')">
+    <div class="tour-label">Giảm 4 triệu</div>
+    <div class="tour-img"><img src="img/anh3.jpeg" alt="Tour Pháp – Đức – Bỉ – Hà Lan – Ý – Thụy Sĩ"></div>
+    <div class="tour-name">Tour Pháp – Đức – Bỉ – Hà Lan – Ý – Thụy Sĩ 9N8Đ</div>
+    <div class="tour-desc">Đa dạng trải nghiệm từ cổ điển đến hiện đại</div>
+    <div class="tour-price">Giá gốc: 55.900.000đ</div>
+    <div class="tour-sale">Giảm giá còn: 51.900.000đ</div>
+    <div class="tour-rating">⭐ 4.0 • Đã đặt 298</div>
+  </div>
+
+  <div class="tour-item" data-region="europe" onclick="goToTourPage('tour4.html')">
+    <div class="tour-label">Hot deal</div>
+    <div class="tour-img"><img src="img/anh4.jpeg" alt="Tour Pháp – Luxembourg – Đức – Bỉ – Hà Lan"></div>
+    <div class="tour-name">Tour Pháp – Luxembourg – Đức – Bỉ – Hà Lan 9N8Đ</div>
+    <div class="tour-desc">Chuyến đi lãng mạn qua các nước Trung và Bắc Âu</div>
+    <div class="tour-price">Giá gốc: 54.900.000đ</div>
+    <div class="tour-sale">Giảm giá còn: 49.900.000đ</div>
+    <div class="tour-rating">⭐ 4.3 • Đã đặt 210</div>
+  </div>
+
+  <div class="tour-item" data-region="europe" onclick="goToTourPage('tour5.html')">
+    <div class="tour-label">Siêu khuyến mãi</div>
+    <div class="tour-img"><img src="img/anh5.jpg" alt="Tour Đức – Czech – Áo – Thụy Sĩ – Ý"></div>
+    <div class="tour-name">Tour Đức – Czech – Áo – Thụy Sĩ – Ý 9N8Đ</div>
+    <div class="tour-desc">Dãy Alps và những thành phố Trung Âu tuyệt đẹp</div>
+    <div class="tour-price">Giá gốc: 54.900.000đ</div>
+    <div class="tour-sale">Giảm giá còn: 46.900.000đ</div>
+    <div class="tour-rating">⭐ 4.6 • Đã đặt 355</div>
+  </div>
+
+  <div class="tour-item" data-region="europe" onclick="goToTourPage('tour6.html')">
+    <div class="tour-label">Yêu thích</div>
+    <div class="tour-img"><img src="img/anh6.jpg" alt="Tour Pháp – Thụy Sĩ – Ý"></div>
+    <div class="tour-name">Tour Pháp – Thụy Sĩ – Ý 10N9Đ</div>
+    <div class="tour-desc">Ngắm tháp Eiffel, dãy Alps và Venice lãng mạn</div>
+    <div class="tour-price">Giá gốc: 62.900.000đ</div>
+    <div class="tour-sale">Giảm giá còn: 62.900.000đ</div>
+    <div class="tour-rating">⭐ 4.1 • Đã đặt 201</div>
+  </div>
+  <div class="tour-item" data-region="europe" onclick="goToTourPage('tour7.html')">
+    <div class="tour-label">Trải nghiệm 4 nước</div>
+    <div class="tour-img"><img src="img/anh7.jpg" alt="Tour Pháp – Bỉ – Hà Lan – Đức"></div>
+    <div class="tour-name">Tour Pháp – Bỉ – Hà Lan – Đức 9N8Đ</div>
+    <div class="tour-desc">Đa văn hóa, hiện đại pha trộn cổ kính</div>
+    <div class="tour-price">Giá gốc: 88.600.000đ</div>
+    <div class="tour-sale">Giảm giá còn: 88.600.000đ</div>
+    <div class="tour-rating">⭐ 4.4 • Đã đặt 185</div>
+  </div>
+  <div class="tour-item" data-region="europe" onclick="goToTourPage('tour8.html')">
+    <div class="tour-label">Giảm 5 triệu</div>
+    <div class="tour-img"><img src="img/anh8.jpeg" alt="Tour Đức – Áo – Séc"></div>
+    <div class="tour-name">Tour Đức – Áo – Séc 9N8Đ</div>
+    <div class="tour-desc">Khám phá Trung Âu cổ kính – lịch sử, kiến trúc và thiên nhiên</div>
+    <div class="tour-price">Giá gốc: 52.900.000đ</div>
+    <div class="tour-sale">Giảm giá còn: 47.900.000đ</div>
+    <div class="tour-rating">⭐ 4.7 • Đã đặt 389</div>
+</div>
+  <div class="tour-item" data-region="europe"  onclick="goToTourPage('tour9.html')">
+    <div class="tour-label">Châu Âu đặc sắc</div>
+    <div class="tour-img"><img src="img/anh9.jpg" alt="Tour Pháp – Tây Ban Nha – Bồ Đào Nha"></div>
+    <div class="tour-name">Tour Pháp – Tây Ban Nha – Bồ Đào Nha 12N11Đ</div>
+    <div class="tour-desc">Khám phá bán đảo Iberia đầy màu sắc</div>
+    <div class="tour-price">Giá gốc: 115.600.000đ</div>
+    <div class="tour-sale">Giảm giá còn: 115.600.000đ</div>
+    <div class="tour-rating">⭐ 4.7 • Đã đặt 198</div>
+  </div>
+
+  <div class="tour-item" data-region="europe" onclick="goToTourPage('tour10.html')">
+    <div class="tour-label">Độc đáo Đông Âu</div>
+    <div class="tour-img"><img src="img/anh10.jpg" alt="Tour Đức – Séc – Ba Lan – Hungary – Áo"></div>
+    <div class="tour-name">Tour Đức – Séc – Ba Lan – Hungary – Áo 10N9Đ</div>
+    <div class="tour-desc">Thăm các thủ đô văn hóa phương Đông</div>
+    <div class="tour-price">Giá gốc: 99.999.000đ</div>
+    <div class="tour-sale">Giảm giá còn: 99.999.000đ</div>
+    <div class="tour-rating">⭐ 4.3 • Đã đặt 169</div>
+  </div>
+    <div class="tour-item" data-region="asia" onclick="goToTourPage('tour11.html')">
+      <div class="tour-label">Mẫu mới</div>
+      <div class="tour-img"><img src="img/asian/anh1.jpeg" alt="Tour Nhật Bản – Hàn Quốc"></div>
+      <div class="tour-name">Tour Nhật Bản – Hàn Quốc 9N8Đ</div>
+      <div class="tour-desc">Khám phá vẻ đẹp hiện đại và cổ kính của Nhật Bản và Hàn Quốc</div>
+      <div class="tour-price">Giá gốc: 45.900.000 VNĐ</div>
+      <div class="tour-sale">Giá sau giảm: 45.900.000 VNĐ</div>
+      <div class="tour-rating">⭐ 4.7 • Đã đặt 198 </div>
+    </div>
+    <div class="tour-item" data-region="asia" onclick="goToTourPage('tour12.html')">
+      <div class="tour-label">Giảm 5 triệu</div>
+      <div class="tour-img"><img src="img/asian/anh2.jpeg" alt="Tour Trung Quốc – Hồng Kông – Ma Cao"></div>
+      <div class="tour-name">Tour Trung Quốc – Hồng Kông – Ma Cao 10N9Đ</div>
+      <div class="tour-desc">Khám phá các kỳ quan văn hóa và kiến trúc nổi tiếng</div>
+      <div class="tour-price">Giá gốc: 56.900.000 VNĐ</div>
+      <div class="tour-sale">Giá sau giảm: 52.900.000 VNĐ</div>
+      <div class="tour-rating">⭐ 4.3 • Đã đặt 169</div>
+    </div>
+    <div class="tour-item" data-region="asia" onclick="goToTourPage('tour13.html')">
+      <div class="tour-label">Giảm 4 triệu</div>
+      <div class="tour-img"><img src="img/asian/anh3.jpeg" alt="Tour Thái Lan – Malaysia – Singapore"></div>
+      <div class="tour-name">Tour Thái Lan – Malaysia – Singapore 10N9Đ</div>
+      <div class="tour-desc">Khám phá ba quốc gia với nền văn hóa đa dạng và ẩm thực phong phú</div>
+      <div class="tour-price">Giá gốc: 49.900.000 VNĐ</div>
+      <div class="tour-sale">Giá sau giảm: 46.900.000 VNĐ</div>
+      <div class="tour-rating">⭐ 4.6 • Đã đặt 355</div>
+    </div>
+    <div class="tour-item" data-region="asia" onclick="goToTourPage('tour14.html')">
+      <div class="tour-label">Hot deal</div>
+      <div class="tour-img"><img src="img/asian/anh4.jpeg" alt="Tour Ấn Độ – Nepal – Bhutan"></div>
+      <div class="tour-name">Tour Ấn Độ – Nepal – Bhutan 9N8Đ</div>
+      <div class="tour-desc">Chuyến hành trình linh thiêng qua ba quốc gia Phật giáo</div>
+      <div class="tour-price">Giá gốc: 55.900.000 VNĐ</div>
+      <div class="tour-sale">Giá sau giảm: 50.900.000 VNĐ</div>
+      <div class="tour-rating">⭐  4.0 • Đã đặt 298</div>
+    </div>
+    <div class="tour-item" data-region="asia" onclick="goToTourPage('tour15.html')">
+      <div class="tour-label">Siêu khuyến mãi</div>
+      <div class="tour-img"><img src="img/asian/anh5.jpeg" alt="Tour Dubai – Abu Dhabi – Qatar"></div>
+      <div class="tour-name">Tour Dubai – Abu Dhabi – Qatar 10N9Đ</div>
+      <div class="tour-desc">Khám phá sự xa hoa của các thành phố Trung Đông</div>
+      <div class="tour-price">Giá gốc: 68.900.000 VNĐ</div>
+      <div class="tour-sale">Giá sau giảm: 68.900.000 VNĐ</div>
+      <div class="tour-rating">⭐ 4.6 • Đã đặt 355</div>
+    </div>
+    <div class="tour-item" data-region="asia" onclick="goToTourPage('tour16.html')">
+      <div class="tour-label">Yêu thích</div>
+      <div class="tour-img"><img src="img/asian/anh6.jpeg" alt="Tour Campuchia – Lào – Thái Lan"></div>
+      <div class="tour-name">Tour Campuchia – Lào – Thái Lan 9N8Đ</div>
+      <div class="tour-desc">Khám phá ba quốc gia Đông Nam Á đầy màu sắc</div>
+      <div class="tour-price">Giá gốc: 42.900.000 VNĐ</div>
+      <div class="tour-sale">Giá sau giảm: 40.900.000 VNĐ</div>
+      <div class="tour-rating">⭐ 4.0 • Đã đặt 400</div>
+    </div>
+    <div class="tour-item" data-region="asia" onclick="goToTourPage('tour17.html')">
+      <div class="tour-label">Trải nghiệm 4 nước</div>
+      <div class="tour-img"><img src="img/asian/anh7.jpeg" alt="Tour Philippines – Maldives"></div>
+      <div class="tour-name">Tour Philippines – Maldives 10N9Đ</div>
+      <div class="tour-desc">Khám phá vẻ đẹp tự nhiên của Philippines và Maldives</div>
+      <div class="tour-price">Giá gốc: 85.900.000 VNĐ</div>
+      <div class="tour-sale">Giá sau giảm: 79.900.000 VNĐ</div>
+      <div class="tour-rating">⭐ 4.0 • Đã đặt 298</div>
+    </div>
+    <div class="tour-item" data-region="asia" onclick="goToTourPage('tour18.html')">
+      <div class="tour-label">Giảm 5 triệu</div>
+      <div class="tour-img"><img src="img/asian/anh8.jpeg" alt="Tour Sri Lanka – Ấn Độ"></div>
+      <div class="tour-name">Tour Sri Lanka – Ấn Độ 9N8Đ</div>
+      <div class="tour-desc">Khám phá hành trình linh thiêng qua các di tích cổ xưa</div>
+      <div class="tour-price">Giá gốc: 55.900.000 VNĐ</div>
+      <div class="tour-sale">Giá sau giảm: 55.900.000 VNĐ</div>
+      <div class="tour-rating">⭐  4.8 • Đã đặt 298</div>
+    </div>
+    <div class="tour-item" data-region="asia" onclick="goToTourPage('tour19.html')">
+      <div class="tour-label">Châu Á đặc sắc</div>
+      <div class="tour-img"><img src="img/asian/anh10.jpeg" alt="Tour Indonesia – Malaysia – Singapore"></div>
+      <div class="tour-name">Tour Indonesia – Malaysia – Singapore 12N11Đ</div>
+      <div class="tour-desc">Khám phá ba quốc gia Đông Nam Á với nhiều điểm đến hấp dẫn</div>
+      <div class="tour-price">Giá gốc: 70.900.000 VNĐ</div>
+      <div class="tour-sale">Giá sau giảm: 67.900.000 VNĐ</div>
+      <div class="tour-rating">⭐ 4.0 • Đã đặt 298</div>
+    </div>
+    <div class="tour-item" data-region="asia" onclick="goToTourPage('tour20.html')">
+      <div class="tour-label">Độc đáo Đông Âu</div>
+      <div class="tour-img"><img src="img/asian/anh10.jpeg" alt="Tour Dubai – Abu Dhabi – Qatar"></div>
+      <div class="tour-name">Tour Dubai – Abu Dhabi – Qatar 12N11Đ</div>
+      <div class="tour-desc">Khám phá các thành phố hiện đại và sa mạc kỳ vĩ của Trung Đông</div>
+      <div class="tour-price">Giá gốc: 85.900.000 VNĐ</div>
+      <div class="tour-sale">Giá sau giảm: 85.900.000 VNĐ</div>
+      <div class="tour-rating">⭐ 4.0 • Đã đặt 298</div>
+    </div>
+    
+    <div class="tour-item" data-region="domestic" onclick="goToTourPage('tour21.html')">
+      <div class="tour-label">Miền Bắc</div>
+      <div class="tour-img"><img src="img/domestic/anh1.jpeg" alt="Tour Hà Nội – Hạ Long – Ninh Bình"></div>
+      <div class="tour-name">Tour Hà Nội – Hạ Long – Ninh Bình 5N4Đ</div>
+      <div class="tour-desc">Khám phá non nước hữu tình miền Bắc</div>
+      <div class="tour-price">Giá gốc: 7.900.000 VNĐ</div>
+      <div class="tour-sale">Giá sau giảm: 6.900.000 VNĐ</div>
+      <div class="tour-rating">⭐ 4.4 • Đã đặt 324</div>
+    </div>
+    
+    <div class="tour-item" data-region="domestic" onclick="goToTourPage('tour22.html')">
+      <div class="tour-label">Miền Trung</div>
+      <div class="tour-img"><img src="img/domestic/anh2.jpeg" alt="Tour Huế – Đà Nẵng – Hội An"></div>
+      <div class="tour-name">Tour Huế – Đà Nẵng – Hội An 4N3Đ</div>
+      <div class="tour-desc">Hành trình di sản miền Trung</div>
+      <div class="tour-price">Giá gốc: 6.500.000 VNĐ</div>
+      <div class="tour-sale">Giá sau giảm: 6.500.000 VNĐ</div>
+      <div class="tour-rating">⭐ 4.3 • Đã đặt 289</div>
+    </div>
+    
+    <div class="tour-item" data-region="domestic" onclick="goToTourPage('tour23.html')">
+      <div class="tour-label">Miền Tây</div>
+      <div class="tour-img"><img src="img/domestic/anh3.jpeg" alt="Tour Cần Thơ – Châu Đốc – Sóc Trăng"></div>
+      <div class="tour-name">Tour Cần Thơ – Châu Đốc – Sóc Trăng 3N2Đ</div>
+      <div class="tour-desc">Khám phá miền sông nước đặc trưng</div>
+      <div class="tour-price">Giá gốc: 4.200.000 VNĐ</div>
+      <div class="tour-sale">Giá sau giảm: 4.200.000 VNĐ</div>
+      <div class="tour-rating">⭐ 4.2 • Đã đặt 198</div>
+    </div>
+    
+    <div class="tour-item" data-region="domestic" onclick="goToTourPage('tour24.html')">
+      <div class="tour-label">Miền Trung</div>
+      <div class="tour-img"><img src="img/domestic/anh4.jpeg" alt="Tour Quy Nhơn – Phú Yên"></div>
+      <div class="tour-name">Tour Quy Nhơn – Phú Yên 4N3Đ</div>
+      <div class="tour-desc">Thiên đường biển hoang sơ và thơ mộng</div>
+      <div class="tour-price">Giá gốc: 5.900.000 VNĐ</div>
+      <div class="tour-sale">Giá sau giảm: 5.900.000 VNĐ</div>
+      <div class="tour-rating">⭐ 4.1 • Đã đặt 176</div>
+    </div>
+    
+    <div class="tour-item" data-region="domestic" onclick="goToTourPage('tour25.html')">
+      <div class="tour-label">Miền Bắc</div>
+      <div class="tour-img"><img src="img/domestic/anh5.jpeg" alt="Tour Sapa – Fansipan – Bản Cát Cát"></div>
+      <div class="tour-name">Tour Sapa – Fansipan – Bản Cát Cát 3N2Đ</div>
+      <div class="tour-desc">Trải nghiệm núi rừng Tây Bắc kỳ vĩ</div>
+      <div class="tour-price">Giá gốc: 6.100.000 VNĐ</div>
+      <div class="tour-sale">Giá sau giảm: 6.100.000 VNĐ</div>
+      <div class="tour-rating">⭐ 4.5 • Đã đặt 307</div>
+    </div>
+    
+    <div class="tour-item" data-region="domestic" onclick="goToTourPage('tour26.html')">
+      <div class="tour-label">Miền Nam</div>
+      <div class="tour-img"><img src="img/domestic/anh6.jpeg" alt="Tour Vũng Tàu – Hồ Tràm"></div>
+      <div class="tour-name">Tour Vũng Tàu – Hồ Tràm 2N1Đ</div>
+      <div class="tour-desc">Thư giãn cuối tuần bên bờ biển</div>
+      <div class="tour-price">Giá gốc: 2.300.000 VNĐ</div>
+      <div class="tour-sale">Giá sau giảm: 2.300.000 VNĐ</div>
+      <div class="tour-rating">⭐ 4.0 • Đã đặt 132</div>
+    </div>
+    
+    <div class="tour-item" data-region="domestic" onclick="goToTourPage('tour27.html')">
+      <div class="tour-label">Miền Trung</div>
+      <div class="tour-img"><img src="img/domestic/anh7.jpeg" alt="Tour Nha Trang – VinWonders"></div>
+      <div class="tour-name">Tour Nha Trang – VinWonders 3N2Đ</div>
+      <div class="tour-desc">Thiên đường giải trí và nghỉ dưỡng</div>
+      <div class="tour-price">Giá gốc: 5.800.000 VNĐ</div>
+      <div class="tour-sale">Giá sau giảm: 5.800.000 VNĐ</div>
+      <div class="tour-rating">⭐ 4.3 • Đã đặt 215</div>
+    </div>
+    
+    <div class="tour-item" data-region="domestic" onclick="goToTourPage('tour28.html')">
+      <div class="tour-label">Miền Bắc</div>
+      <div class="tour-img"><img src="img/domestic/anh8.jpeg" alt="Tour Mộc Châu – Mai Châu"></div>
+      <div class="tour-name">Tour Mộc Châu – Mai Châu 3N2Đ</div>
+      <div class="tour-desc">Thảo nguyên xanh và văn hoá dân tộc</div>
+      <div class="tour-price">Giá gốc: 5.200.000 VNĐ</div>
+      <div class="tour-sale">Giá sau giảm: 5.200.000 VNĐ</div>
+      <div class="tour-rating">⭐ 4.2 • Đã đặt 198</div>
+    </div>
+    
+    <div class="tour-item" data-region="domestic" onclick="goToTourPage('tour29.html')">
+      <div class="tour-label">Miền Nam</div>
+      <div class="tour-img"><img src="img/domestic/anh9.jpeg" alt="Tour Phú Quốc – Nam Đảo – Vinpearl"></div>
+      <div class="tour-name">Tour Phú Quốc – Nam Đảo – Vinpearl 4N3Đ</div>
+      <div class="tour-desc">Thiên đường nghỉ dưỡng biển xanh cát trắng</div>
+      <div class="tour-price">Giá gốc: 6.700.000 VNĐ</div>
+      <div class="tour-sale">Giá sau giảm: 6.700.000 VNĐ</div>
+      <div class="tour-rating">⭐ 4.4 • Đã đặt 276</div>
+    </div>
+    
+    <div class="tour-item" data-region="domestic" onclick="goToTourPage('tour30.html')">
+      <div class="tour-label">Miền Trung</div>
+      <div class="tour-img"><img src="img/domestic/anh10.jpeg" alt="Tour Đà Lạt – Langbiang – Thung Lũng Tình Yêu"></div>
+      <div class="tour-name">Tour Đà Lạt – Langbiang – Thung Lũng Tình Yêu 3N2Đ</div>
+      <div class="tour-desc">Xứ sở ngàn hoa và không khí se lạnh lãng mạn</div>
+      <div class="tour-price">Giá gốc: 5.400.000 VNĐ</div>
+      <div class="tour-sale">Giá sau giảm: 5.400.000 VNĐ</div>
+      <div class="tour-rating">⭐ 4.5 • Đã đặt 308</div>
+    </div>
+    
+</div>
+</body>
+<!-- footer -->
+<footer>
+  <section id="about-us">
+    <h2 id="gt">Giới Thiệu Về Chúng Tôi</h2>
+
+    <div class="footer-container">
+      <!-- Cột 1: Đối tác & Thông tin cần biết -->
+      <div class="footer-col">
+        <div class="ht">
+          <h3>Đối tác của chúng tôi</h3>
+          <a href="https://www.vietnamairlines.com/"><img src="img/VietNamAirlines.png"></a>
+          <a href="https://vnexpress.net/"><img src="img/vnExpress.png"></a>
+        </div>
+
+        <div class="info-links">
+          <h3>Thông tin cần biết</h3>
+          <a href="điều khoản.html">Điều khoản</a><br>
+          <a href="chính sách bảo mật .html">Chính sách bảo mật</a>
+        </div>
+      </div>
+
+      <!-- Cột 2: Chứng nhận & Liên hệ -->
+      <div class="footer-col">
+        <div class="certifications">
+          <h3>Chứng nhận</h3>
+          <img src="img/chứng nhận.png" alt="Chứng nhận 1" width="100">
+        </div>
+
+        <div id="lh">
+          <p>Bạn cần giúp?</p>
+          <b>Hãy gọi</b><br>
+          <b>Hotline:</b> <p>1900000</p>
+          <p>Từ 7h30-21h hàng ngày</p>
+        </div>
+      </div>
+
+      <!-- Cột 3: Mạng xã hội & Địa chỉ -->
+      <div class="footer-col">
+        <div class="social">
+          <b>Kết nối với chúng tôi</b>
+          <div class="icon-connect">
+            <a href="https://www.facebook.com/?locale=vi_VN"><i class='bx bxl-facebook-circle'></i></a>
+            <a href="https://www.instagram.com/accounts/login/"><i class='bx bxl-instagram'></i></a>
+            <a href="https://www.youtube.com/@KhoaiLangThang"><i class='bx bxl-youtube'></i></a>
+            <a href="https://www.tiktok.com/login?lang=vi-VN&redirect_url=https%3A%2F%2Fwww.tiktok.com%2Fupload%3Flang%3Dvi-VN"><i class='bx bxl-tiktok'></i></a>
+            <a href="https://developers.line.biz/en/services/line-login/"><i class='bx bxs-phone'></i></a>
+          </div>
+        </div>
+
+        <div class="address">
+          <b>Địa chỉ:</b> 705/7/5A, Đại lộ Bình Dương, Chánh Mỹ, Thủ Dầu Một, Bình Dương
+        </div>
+        <div class="logo">
+          <img src="img/Chụp màn hình từ 2025-04-11 15-59-12.png" alt="map" width="400">
+        </div>
+      </div>
+    </div>
+  </section>
+</footer>

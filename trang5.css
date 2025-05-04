@@ -1,0 +1,483 @@
+/* ======= Reset ======= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ======= Body ======= */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background-color: #f5f5f5;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+body.dark-theme {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+/* ======= Menu (Header) ======= */
+.main-header {
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  padding: 10px 0;
+  font-family: 'Segoe UI', sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.dark-theme .main-header {
+  background-color: #333;
+  border-bottom: 1px solid #444;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.main-header .container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+.logo a {
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #0077cc;
+  transition: color 0.3s ease;
+}
+.dark-theme .logo a {
+  color: #0077cc;
+}
+.main-nav {
+  display: flex;
+  gap: 20px;
+}
+.main-nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 0;
+  transition: color 0.3s;
+}
+.dark-theme .main-nav a {
+  color: #eee;
+}
+.main-nav a:hover {
+  color: #0077cc !important;
+}
+/* search-box */
+.search-box {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.search-box input {
+  padding: 6px 10px;
+  font-size: 14px;
+  font-family: 'Segoe UI', sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.dark-theme .search-box input{
+  background-color: #444;
+  color: #f8f8f8;
+}
+.search-box input:focus {
+  border-color: #0077cc;
+}
+
+.search-box button {
+  padding: 6px 12px;
+  background-color: #0077cc;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.search-box button:hover {
+  background-color: #005fa3;
+}
+
+.theme-toggle {
+  padding: 6px 12px;
+  background-color: #0077cc;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.dark-theme .theme-toggle {
+  background-color: #0077cc;
+}
+  /* ======= Suggestion Box ======= */
+  .suggestion-box {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    width: 240px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+  }
+  .suggestion-item {
+    padding: 8px 10px;
+    cursor: pointer;
+  }
+  .suggestion-item:hover {
+    background-color: #04bbe9;
+  }
+  /* ======= Flight Form ======= */
+.flight-search {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.dark-theme .flight-search{
+  background-color: #333;
+  color: white;
+  border: 2px solid #00bfff; /* viền xanh nước biển hover */
+  box-shadow: 0 0px 20px rgba(0,191,255,0.3); /* đổ bóng xanh nước */
+}
+.flight-search .trip-type {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.flight-search .trip-type label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  color: #333;
+  transition: color 0.3s;
+
+}
+.dark-theme .flight-search .trip-type label{
+  color: #f8f8f8;
+}
+.flight-search .location-inputs,
+.flight-search .date-inputs {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.flight-search .location-inputs div,
+.flight-search .date-inputs div {
+  flex: 1 1 45%;
+}
+
+.flight-search input[type="search"],
+.flight-search input[type="date"] {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 13px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+.dark-theme.flight-search input[type="search"],
+.dark-theme.flight-search input[type="date"] {
+  background-color: #444;
+  color: #f8f8f8;
+}
+.form-buttons {
+  display: flex;
+  justify-content: center; /* căn giữa */
+  gap: 15px; /* khoảng cách giữa nút */
+  margin-top: 20px;
+}
+
+.form-buttons button {
+  padding: 8px 16px;
+  background-color: #0099cc;
+  color: #f8f8f8;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  width: auto; /* bỏ width: 100% để nút không bị kéo dài */
+  min-width: 120px;
+  transition: background-color 0.3s;
+}
+
+.form-buttons button:hover {
+  background-color: #0077cc;
+}
+
+/* CSS cho thẻ select */
+.location-inputs select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+.dark-theme .location-inputs select {
+  background-color: #444;
+  color: #f8f8f8;
+}
+.dark-theme .flight-search input[type="date"] {
+  background-color: #444; /* nền đen hơn */
+  color: #fff;
+  border-color: #666;
+  border: 1px solid #ddd;
+}
+
+/* ==== CSS tổng cho danh sách chuyến bay ==== */
+.flight-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* ==== CSS cho mỗi chuyến bay ==== */
+.flight {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* đổ bóng nhẹ */
+  padding: 20px;
+  background: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.dark-theme .flight {
+  background-color: #2e2e2e;
+  color: #f8f8f8; 
+  border: 2px solid #3498db; 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4); 
+}
+
+/* Hover cho mỗi chuyến bay */
+.flight:hover {
+  transform: translateY(-10px);
+}
+.dark-theme .flight:hover {
+  transform: translateY(-5px);
+  border: 2px solid #00bfff; /* viền xanh nước biển hover */
+  box-shadow: 0 0px 20px rgba(0,191,255,0.3); /* đổ bóng xanh nước */
+}
+
+/* ==== Phần tiêu đề Vé khứ hồi hoặc Vé một chiều ==== */
+.flight .td h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+.dark-theme .flight .td h2{
+  color: #f8f8f8;
+}
+/* ==== Phần thông tin lộ trình bay ==== */
+.flight-information {
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+  margin-top: 15px;
+}
+
+.flight-information div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0;
+}
+
+.flight-information h3 {
+  font-size: 20px;
+  color: #2980b9;
+}
+
+.flight-information p {
+  font-size: 16px;
+  color: #555;
+}
+.dark-theme .flight-information p {
+  color: #f8f8f8;
+}
+/* ==== Icon máy bay ==== */
+.flight-information i {
+  color: #3498db;
+  font-size: 20px;
+}
+
+/* ==== Dấu chấm nối các sân bay ==== */
+.dots::before {
+  content: '••••';
+  color: #7f8c8d;
+  margin: 0 5px;
+}
+
+/* ==== Phần thông tin ngày bay và loại vé ==== */
+.flight-date {
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+  margin-top: 15px;
+}
+
+.flight-date div {
+  margin: 8px 0;
+}
+
+.flight-date strong {
+  display: inline-block;
+  width: 150px;
+  color: #0077cc;
+}
+
+.flight-date p {
+  display: inline-block;
+  color: #555;
+}
+.dark-mode .flight-date p {
+  color: #ffffff;
+}
+
+/* ==== Phần thông tin hạng vé và giá ==== */
+.flight-class select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+body.dark-mode .flight-class select {
+  background-color: #2e2e2e;
+  color: #f8f8f8;
+  border: 1px solid #666;
+}
+/* button */
+.flight-class button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #007BFF;
+  color: #f8f8f8;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.flight-class button:hover {
+  background-color: #0056b3;
+}
+
+body.dark-mode .flight-class button {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+/* ======= Responsive Design ======= */
+@media (max-width: 768px) {
+  .flight-search {
+    width: 90%;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 500px) {
+  .flight-search .location-inputs div,
+  .flight-search .date-inputs div {
+    flex: 1 1 100%;
+  }
+}
+@media (min-width: 600px) {
+  .flight-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+  /* ======= Footer ======= */
+footer {
+    background-color: #222;
+    color: #eee;
+    padding: 30px;
+    font-family: Arial, sans-serif;
+  }
+  #gt {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  .footer-col {
+    flex: 1;
+    min-width: 250px;
+  }
+  .footer-col h3, .footer-col b {
+    margin-top: 15px;
+  }
+  .footer-col a {
+    display: block;
+    color: #007BFF;
+    text-decoration: none;
+    margin: 5px 0;
+  }
+  .footer-col a:hover {
+    text-decoration: underline;
+  }
+  .icon-connect {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .icon-connect a {
+    font-size: 24px;
+    color: #fff;
+    transition: 0.3s;
+  }
+  .icon-connect a:hover {
+    color: #007BFF;
+  }
+  .certifications img, .logo img {
+    margin: 5px;
+    border-radius: 5px;
+  }
+  
+  /* ======= Responsive ======= */
+  @media (max-width: 768px) {
+    .main-nav {
+        display: none;
+    }
+    .footer-content {
+        flex-direction: column;
+    }
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .footer-col {
+        width: 100%;
+    }
+  }

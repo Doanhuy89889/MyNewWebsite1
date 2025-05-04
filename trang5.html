@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="vn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="trang5.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="trangchu.js"></script>
+    <script src="Booking.js"></script>
+    <script src="search.js"></script>
+    <script src="trang5.js"></script>
+    <script src="payment.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="trang1.html">Du Lịch và khám phá</a>
+            </div>
+            <nav class="main-nav">
+                <a href="trang1.html">Trang chủ</a>
+                <a href="trang2.html">Tour</a>
+                <a href="trang3.html">Voucher</a>
+                <a href="trang5.html">Chuyến bay</a>
+                <a href="trang4.html">Đăng nhập/Đăng ký</a>
+            </nav>
+            <div class="search-box">
+                <input type="text" id="search-input" oninput="showSuggestions()" placeholder="Tìm kiếm tour..." aria-label="Tìm kiếm tour">
+                <button aria-label="Tìm kiếm">Tìm</button>
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">Đổi giao diện</button>
+                <div id="suggestion-box" style="display: none;"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Form chọn chuyến bay -->
+    <div class="flight-search">
+        <h2>Tìm chuyến bay</h2>
+        <form id="flight-search-form">
+            <div class="trip-type">
+                <label><input type="radio" name="trip" value="round" checked onchange="toggleReturnDate(true)" aria-label="Vé khứ hồi"> Khứ hồi</label>
+                <label><input type="radio" name="trip" value="oneway" onchange="toggleReturnDate(false)" aria-label="Vé một chiều"> Một chiều</label>
+            </div>
+            <div class="location-inputs">
+                <div>
+                    <label for="from">Từ:</label>
+                    <select id="from" aria-label="Chọn điểm xuất phát">
+                        <option value="">-- Chọn thành phố --</option>
+                        <option value="HAN">Hà Nội (HAN)</option>
+                        <option value="SGN">TP. Hồ Chí Minh (SGN)</option>
+                        <option value="DAD">Đà Nẵng (DAD)</option>
+                        <option value="CXR">Nha Trang (CXR)</option>
+                        <option value="PQC">Phú Quốc (PQC)</option>
+                        <option value="DLI">Đà Lạt (DLI)</option>
+                        <option value="HPH">Hải Phòng (HPH)</option>
+                        <option value="HUI">Huế (HUI)</option>
+                        <option value="VCA">Cần Thơ (VCA)</option>
+                        <option value="UIH">Quy Nhơn (UIH)</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="to">Đến:</label>
+                    <select id="to" aria-label="Chọn điểm đến">
+                        <option value="">-- Chọn thành phố --</option>
+                        <option value="HAN">Hà Nội (HAN)</option>
+                        <option value="SGN">TP. Hồ Chí Minh (SGN)</option>
+                        <option value="DAD">Đà Nẵng (DAD)</option>
+                        <option value="CXR">Nha Trang (CXR)</option>
+                        <option value="PQC">Phú Quốc (PQC)</option>
+                        <option value="DLI">Đà Lạt (DLI)</option>
+                        <option value="HPH">Hải Phòng (HPH)</option>
+                        <option value="HUI">Huế (HUI)</option>
+                        <option value="VCA">Cần Thơ (VCA)</option>
+                        <option value="UIH">Quy Nhơn (UIH)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="date-inputs">
+                <div>
+                    <label for="departure-date">Ngày xuất phát:</label>
+                    <input type="date" id="departure-date" aria-label="Chọn ngày xuất phát">
+                </div>
+                <div id="return-date-wrapper">
+                    <label for="return-date">Ngày về:</label>
+                    <input type="date" id="return-date" aria-label="Chọn ngày về">
+                </div>
+            </div>
+            <div class="form-buttons">
+                <button type="button" onclick="searchFlight()" aria-label="Tìm chuyến bay">Tìm chuyến bay</button>
+                <button type="button" onclick="resetSearch()" aria-label="Đặt lại">Đặt lại</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Flight List -->
+    <div class="flight-list">
+        <div id="no-results" style="display: none; text-align: center; padding: 20px; color: #555;">
+            Không tìm thấy chuyến bay phù hợp với tiêu chí của bạn.
+        </div>
+        <!-- Flight 1 -->
+        <div class="flight">
+            <div class="td"><h2>Vé khứ hồi</h2></div>
+            <div class="flight-information">
+                <div><h3>SGN</h3><span class="dots"></span><i class='bx bxs-plane-land'></i><h3>HAN</h3></div>
+                <div><p>TP. Hồ Chí Minh (Tân Sơn Nhất) → Hà Nội (Nội Bài)</p></div>
+                <div><strong>Giờ khởi hành:</strong><p>08:30</p></div>
+                <div><strong>Giờ đến dự kiến:</strong><p>10:45</p></div>
+                <div><h3>HAN</h3><span class="dots"></span><i class='bx bxs-plane-take-off'></i><h3>SGN</h3></div>
+                <div><p>Hà Nội (Nội Bài) → TP. Hồ Chí Minh (Tân Sơn Nhất)</p></div>
+                <div><strong>Giờ khởi hành:</strong><p>11:30</p></div>
+                <div><strong>Giờ đến dự kiến:</strong><p>13:45</p></div>
+            </div>
+            <div class="flight-date">
+                <div><strong>Thời gian bay:</strong><p>2h 15m (lượt đi), 2h 15m (lượt về)</p></div>
+                <div><strong>Ngày đi:</strong><p>25/04/2025</p></div>
+                <div><strong>Ngày về:</strong><p>30/04/2025</p></div>
+                <div><strong>Loại vé:</strong><p>Khứ hồi</p></div>
+                <div><strong>Mã chuyến bay:</strong><p>VN123</p></div>
+                <div><strong>Hãng:</strong><p>Vietnam Airlines</p></div>
+            </div>
+            <div class="flight-class">
+                <select class="class-select" aria-label="Chọn hạng vé">
+                    <option value="economy" data-price="3200000">Hạng Phổ thông - 3,200,000 VND</option>
+                    <option value="premium_economy" data-price="4800000">Hạng Phổ thông Đặc biệt - 4,800,000 VND</option>
+                    <option value="business" data-price="6400000">Hạng Thương gia - 6,400,000 VND</option>
+                </select>
+                 <button type="button" onclick="handleFlightBooking(this)">Đặt vé ngay</button>
+            </div>
+        </div>
+        <!-- Flight 2 -->
+        <div class="flight">
+            <div class="td"><h2>Vé khứ hồi</h2></div>
+            <div class="flight-information">
+                <div><h3>CXR</h3><span class="dots"></span><i class='bx bxs-plane-land'></i><h3>HAN</h3></div>
+                <div><p>Nha Trang (Cam Ranh) → Hà Nội (Nội Bài)</p></div>
+                <div><strong>Giờ khởi hành:</strong><p>10:00</p></div>
+                <div><strong>Giờ đến dự kiến:</strong><p>12:00</p></div>
+                <div><h3>HAN</h3><span class="dots"></span><i class='bx bxs-plane-take-off'></i><h3>CXR</h3></div>
+                <div><p>Hà Nội (Nội Bài) → Nha Trang (Cam Ranh)</p></div>
+                <div><strong>Giờ khởi hành:</strong><p>13:00</p></div>
+                <div><strong>Giờ đến dự kiến:</strong><p>15:00</p></div>
+            </div>
+            <div class="flight-date">
+                <div><strong>Thời gian bay:</strong><p>2h 00m (lượt đi), 2h 00m (lượt về)</p></div>
+                <div><strong>Ngày đi:</strong><p>28/04/2025</p></div>
+                <div><strong>Ngày về:</strong><p>04/05/2025</p></div>
+                <div><strong>Loại vé:</strong><p>Khứ hồi</p></div>
+                <div><strong>Mã chuyến bay:</strong><p>VN224</p></div>
+                <div><strong>Hãng:</strong><p>Vietnam Airlines</p></div>
+            </div>
+            <div class="flight-class">
+                <select class="class-select" aria-label="Chọn hạng vé">
+                    <option value="economy" data-price="3250000">Hạng Phổ thông - 3,250,000 VND</option>
+                    <option value="premium_economy" data-price="4875000">Hạng Phổ thông Đặc biệt - 4,875,000 VND</option>
+                    <option value="business" data-price="6500000">Hạng Thương gia - 6,500,000 VND</option>
+                </select>
+                 <button type="button" onclick="handleFlightBooking(this)">Đặt vé ngay</button>
+            </div>
+        </div>
+        <!-- Flight 3 -->
+        <div class="flight">
+            <div class="td"><h2>Vé khứ hồi</h2></div>
+            <div class="flight-information">
+                <div><h3>SGN</h3><span class="dots"></span><i class='bx bxs-plane-land'></i><h3>PQC</h3></div>
+                <div><p>TP. Hồ Chí Minh (Tân Sơn Nhất) → Phú Quốc</p></div>
+                <div><strong>Giờ khởi hành:</strong><p>22:00</p></div>
+                <div><strong>Giờ đến dự kiến:</strong><p>23:00</p></div>
+                <div><h3>PQC</h3><span class="dots"></span><i class='bx bxs-plane-take-off'></i><h3>SGN</h3></div>
+                <div><p>Phú Quốc → TP. Hồ Chí Minh (Tân Sơn Nhất)</p></div>
+                <div><strong>Giờ khởi hành:</strong><p>07:00</p></div>
+                <div><strong>Giờ đến dự kiến:</strong><p>08:00</p></div>
+            </div>
+            <div class="flight-date">
+                <div><strong>Thời gian bay:</strong><p>1h 00m (lượt đi), 1h 00m (lượt về)</p></div>
+                <div><strong>Ngày đi:</strong><p>02/05/2025</p></div>
+                <div><strong>Ngày về:</strong><p>06/05/2025</p></div>
+                <div><strong>Loại vé:</strong><p>Khứ hồi</p></div>
+                <div><strong>Mã chuyến bay:</strong><p>VN800</p></div>
+                <div><strong>Hãng:</strong><p>Vietnam Airlines</p></div>
+            </div>
+            <div class="flight-class">
+                <select class="class-select" aria-label="Chọn hạng vé">
+                    <option value="economy" data-price="3000000">Hạng Phổ thông - 3,000,000 VND</option>
+                    <option value="premium_economy" data-price="4500000">Hạng Phổ thông Đặc biệt - 4,500,000 VND</option>
+                    <option value="business" data-price="6000000">Hạng Thương gia - 6,000,000 VND</option>
+                </select>
+                 <button type="button" onclick="handleFlightBooking(this)">Đặt vé ngay</button>
+            </div>
+        </div>
+        <!-- Flight 4 -->
+        <div class="flight">
+            <div class="td"><h2>Vé khứ hồi</h2></div>
+            <div class="flight-information">
+                <div><h3>DAD</h3><span class="dots"></span><i class='bx bxs-plane-land'></i><h3>SGN</h3></div>
+                <div><p>Đà Nẵng → TP. Hồ Chí Minh (Tân Sơn Nhất)</p></div>
+                <div><strong>Giờ khởi hành:</strong><p>11:15</p></div>
+                <div><strong>Giờ đến dự kiến:</strong><p>12:45</p></div>
+                <div><h3>SGN</h3><span class="dots"></span><i class='bx bxs-plane-take-off'></i><h3>DAD</h3></div>
+                <div><p>TP. Hồ Chí Minh (Tân Sơn Nhất) → Đà Nẵng</p></div>
+                <div><strong>Giờ khởi hành:</strong><p>13:45</p></div>
+                <div><strong>Giờ đến dự kiến:</strong><p>15:15</p></div>
+            </div>
+            <div class="flight-date">
+                <div><strong>Thời gian bay:</strong><p>1h 30m (lượt đi), 1h 30m (lượt về)</p></div>
+                <div><strong>Ngày đi:</strong><p>05/01/2025</p></div>
+                <div><strong>Ngày về:</strong><p>05/05/2025</p></div>
+                <div><strong>Loại vé:</strong><p>Khứ hồi</p></div>
+                <div><strong>Mã chuyến bay:</strong><p>QH202</p></div>
+                <div><strong>Hãng:</strong><p>Bamboo Airways</p></div>
+            </div>
+            <div class="flight-class">
+                <select class="class-select" aria-label="Chọn hạng vé">
+                    <option value="economy" data-price="2800000">Hạng Phổ thông - 2,800,000 VND</option>
+                    <option value="premium_economy" data-price="4200000">Hạng Phổ thông Đặc biệt - 4,200,000 VND</option>
+                    <option value="business" data-price="5600000">Hạng Thương gia - 5,600,000 VND</option>
+                </select>
+                 <button type="button" onclick="handleFlightBooking(this)">Đặt vé ngay</button>
+            </div>
+        </div>
+        <!-- Flight 5 -->
+        <div class="flight">
+            <div class="td"><h2>Vé khứ hồi</h2></div>
+            <div class="flight-information">
+                <div><h3>PXU</h3><span class="dots"></span><i class='bx bxs-plane-land'></i><h3>SGN</h3></div>
+                <div><p>Pleiku → TP. Hồ Chí Minh (Tân Sơn Nhất)</p></div>
+                <div><strong>Giờ khởi hành:</strong><p>07:20</p></div>
+                <div><strong>Giờ đến dự kiến:</strong><p>08:40</p></div>
+                <div><h3>SGN</h3><span class="dots"></span><i class='bx bxs-plane-take-off'></i><h3>PXU</h3></div>
+                <div><p>TP. Hồ Chí Minh (Tân Sơn Nhất) → Pleiku</p></div>
+                <div><strong>Giờ khởi hành:</strong><p>09:40</p></div>
+                <div><strong>Giờ đến dự kiến:</strong><p>11:00</p></div>
+            </div>
+            <div class="flight-date">
+                <div><strong>Thời gian bay:</strong><p>1h 20m (lượt đi), 1h 20m (lượt về)</p></div>
+                <div><strong>Ngày đi:</strong><p>05/05/2025</p></div>
+                <div><strong>Ngày về:</strong><p>10/05/2025</p></div>
+                <div><strong>Loại vé:</strong><p>Khứ hồi</p></div>
+                <div><strong>Mã chuyến bay:</strong><p>VN333</p></div>
+                <div><strong>Hãng:</strong><p>Vietnam Airlines</p></div>
+            </div>
+            <div class="flight-class">
+                <select class="class-select" aria-label="Chọn hạng vé">
+                    <option value="economy" data-price="2200000">Hạng Phổ thông - 2,200,000 VND</option>
+                    <option value="premium_economy" data-price="3300000">Hạng Phổ thông Đặc biệt - 3,300,000 VND</option>
+                    <option value="business" data-price="4400000">Hạng Thương gia - 4,400,000 VND</option>
+                </select>
+                 <button type="button" onclick="handleFlightBooking(this)">Đặt vé ngay</button>
+            </div>
+        </div>
+        <!-- Flight 6 -->
+        <div class="flight">
+            <div class="td"><h2>Vé khứ hồi</h2></div>
+            <div class="flight-information">
+                <div><h3>SGN</h3><span class="dots"></span><i class='bx bxs-plane-land'></i><h3>HPH</h3></div>
+                <div><p>TP. Hồ Chí Minh (Tân Sơn Nhất) → Hải Phòng (Cát Bi)</p></div>
+                <div><strong>Giờ khởi hành:</strong><p>06:00</p></div>
+                <div><strong>Giờ đến dự kiến:</strong><p>08:10</p></div>
+                <div><h3>HPH</h3><span class="dots"></span><i class='bx bxs-plane-take-off'></i><h3>SGN</h3></div>
+                <div><p>Hải Phòng (Cát Bi) → TP. Hồ Chí Minh (Tân Sơn Nhất)</p></div>
+                <div><strong>Giờ khởi hành:</strong><p>09:10</p></div>
+                <div><strong>Giờ đến dự kiến:</strong><p>11:20</p></div>
+            </div>
+            <div class="flight-date">
+                <div><strong>Thời gian bay:</strong><p>2h 10m (lượt đi), 2h 10m (lượt về)</p></div>
+                <div><strong>Ngày đi:</strong><p>02/05/2025</p></div>
+                <div><strong>Ngày về:</strong><p>07/05/2025</p></div>
+                <div><strong>Loại vé:</strong><p>Khứ hồi</p></div>
+                <div><strong>Mã chuyến bay:</strong><p>VJ511</p></div>
+                <div><strong>Hãng:</strong><p>VietJet Air</p></div>
+            </div>
+            <div class="flight-class">
+                <select class="class-select" aria-label="Chọn hạng vé">
+                    <option value="economy" data-price="2600000">Hạng Phổ thông - 2,600,000 VND</option>
+                    <option value="premium_economy" data-price="3900000">Hạng Phổ thông Đặc biệt - 3,900,000 VND</option>
+                    <option value="business" data-price="5200000">Hạng Thương gia - 5,200,000 VND</option>
+                </select>
+                 <button type="button" onclick="handleFlightBooking(this)">Đặt vé ngay</button>
+            </div>
+        </div>
+        <!-- Flight 7 -->
+        <div class="flight">
+            <div class="td"><h2>Vé một chiều</h2></div>
+            <div class="flight-information">
+                <div><h3>HAN</h3><span class="dots"></span><i class='bx bxs-plane-land'></i><h3>SGN</h3></div>
+                <div><p>Hà Nội (Nội Bài) → TP. Hồ Chí Minh (Tân Sơn Nhất)</p></div>
+                <div><strong>Giờ khởi hành:</strong><p>17:00</p></div>
+                <div><strong>Giờ đến dự kiến:</strong><p>19:10</p></div>
+            </div>
+            <div class="flight-date">
+                <div><strong>Thời gian bay:</strong><p>2h 10m</p></div>
+                <div><strong>Ngày đi:</strong><p>27/04/2025</p></div>
+                <div><strong>Loại vé:</strong><p>Một chiều</p></div>
+                <div><strong>Mã chuyến bay:</strong><p>VJ789</p></div>
+                <div><strong>Hãng:</strong><p>VietJet Air</p></div>
+            </div>
+            <div class="flight-class">
+                <select class="class-select" aria-label="Chọn hạng vé">
+                    <option value="economy" data-price="1500000">Hạng Phổ thông - 1,500,000 VND</option>
+                    <option value="premium_economy" data-price="2250000">Hạng Phổ thông Đặc biệt - 2,250,000 VND</option>
+                    <option value="business" data-price="3000000">Hạng Thương gia - 3,000,000 VND</option>
+                </select>
+                 <button type="button" onclick="handleFlightBooking(this)">Đặt vé ngay</button>
+            </div>
+        </div>
+        <!-- Flight 8 -->
+        <div class="flight">
+            <div class="td"><h2>Vé một chiều</h2></div>
+            <div class="flight-information">
+                <div><h3>HAN</h3><span class="dots"></span><i class='bx bxs-plane-land'></i><h3>DLI</h3></div>
+                <div><p>Hà Nội (Nội Bài) → Đà Lạt (Liên Khương)</p></div>
+                <div><strong>Giờ khởi hành:</strong><p>19:00</p></div>
+                <div><strong>Giờ đến dự kiến:</strong><p>20:40</p></div>
+            </div>
+            <div class="flight-date">
+                <div><strong>Thời gian bay:</strong><p>1h 40m</p></div>
+                <div><strong>Ngày đi:</strong><p>30/04/2025</p></div>
+                <div><strong>Loại vé:</strong><p>Một chiều</p></div>
+                <div><strong>Mã chuyến bay:</strong><p>VJ168</p></div>
+                <div><strong>Hãng:</strong><p>VietJet Air</p></div>
+            </div>
+            <div class="flight-class">
+                <select class="class-select" aria-label="Chọn hạng vé">
+                    <option value="economy" data-price="1200000">Hạng Phổ thông - 1,200,000 VND</option>
+                    <option value="premium_economy" data-price="1800000">Hạng Phổ thông Đặc biệt - 1,800,000 VND</option>
+                    <option value="business" data-price="2400000">Hạng Thương gia - 2,400,000 VND</option>
+                </select>
+                 <button type="button" onclick="handleFlightBooking(this)">Đặt vé ngay</button>
+            </div>
+        </div>
+        <!-- Flight 9 -->
+        <div class="flight">
+            <div class="td"><h2>Vé một chiều</h2></div>
+            <div class="flight-information">
+                <div><h3>SGN</h3><span class="dots"></span><i class='bx bxs-plane-land'></i><h3>VCA</h3></div>
+                <div><p>TP. Hồ Chí Minh (Tân Sơn Nhất) → Cần Thơ</p></div>
+                <div><strong>Giờ khởi hành:</strong><p>09:00</p></div>
+                <div><strong>Giờ đến dự kiến:</strong><p>10:00</p></div>
+            </div>
+            <div class="flight-date">
+                <div><strong>Thời gian bay:</strong><p>1h 00m</p></div>
+                <div><strong>Ngày đi:</strong><p>03/05/2025</p></div>
+                <div><strong>Loại vé:</strong><p>Một chiều</p></div>
+                <div><strong>Mã chuyến bay:</strong><p>BL456</p></div>
+                <div><strong>Hãng:</strong><p>Pacific Airlines</p></div>
+            </div>
+            <div class="flight-class">
+                <select class="class-select" aria-label="Chọn hạng vé">
+                    <option value="economy" data-price="900000">Hạng Phổ thông - 900,000 VND</option>
+                    <option value="premium_economy" data-price="1350000">Hạng Phổ thông Đặc biệt - 1,350,000 VND</option>
+                    <option value="business" data-price="1800000">Hạng Thương gia - 1,800,000 VND</option>
+                </select>
+                 <button type="button" onclick="handleFlightBooking(this)">Đặt vé ngay</button>
+            </div>
+        </div>
+        <!-- Flight 10 -->
+        <div class="flight">
+            <div class="td"><h2>Vé một chiều</h2></div>
+            <div class="flight-information">
+                <div><h3>DLI</h3><span class="dots"></span><i class='bx bxs-plane-land'></i><h3>HAN</h3></div>
+                <div><p>Đà Lạt (Liên Khương) → Hà Nội (Nội Bài)</p></div>
+                <div><strong>Giờ khởi hành:</strong><p>14:30</p></div>
+                <div><strong>Giờ đến dự kiến:</strong><p>16:10</p></div>
+            </div>
+            <div class="flight-date">
+                <div><strong>Thời gian bay:</strong><p>1h 40m</p></div>
+                <div><strong>Ngày đi:</strong><p>04/05/2025</p></div>
+                <div><strong>Loại vé:</strong><p>Một chiều</p></div>
+                <div><strong>Mã chuyến bay:</strong><p>QH789</p></div>
+                <div><strong>Hãng:</strong><p>Bamboo Airways</p></div>
+            </div>
+            <div class="flight-class">
+                <select class="class-select" aria-label="Chọn hạng vé">
+                    <option value="economy" data-price="1750000">Hạng Phổ thông - 1,750,000 VND</option>
+                    <option value="premium_economy" data-price="2625000">Hạng Phổ thông Đặc biệt - 2,625,000 VND</option>
+                    <option value="business" data-price="3500000">Hạng Thương gia - 3,500,000 VND</option>
+                </select>
+                 <button type="button" onclick="handleFlightBooking(this)">Đặt vé ngay</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <section id="about-us">
+          <h2 id="gt">Giới Thiệu Về Chúng Tôi</h2>
+      
+          <div class="footer-container">
+            <!-- Cột 1: Đối tác & Thông tin cần biết -->
+            <div class="footer-col">
+              <div class="ht">
+                <h3>Đối tác của chúng tôi</h3>
+                <a href="https://www.vietnamairlines.com/"><img src="img/VietNamAirlines.png"></a>
+                <a href="https://vnexpress.net/"><img src="img/vnExpress.png"></a>
+              </div>
+      
+              <div class="info-links">
+                <h3>Thông tin cần biết</h3>
+                <a href="điều khoản.html">Điều khoản</a><br>
+                <a href="chính sách bảo mật .html">Chính sách bảo mật</a>
+              </div>
+            </div>
+      
+            <!-- Cột 2: Chứng nhận & Liên hệ -->
+            <div class="footer-col">
+              <div class="certifications">
+                <h3>Chứng nhận</h3>
+                <img src="img/chứng nhận.png" alt="Chứng nhận 1" width="100">
+              </div>
+      
+              <div id="lh">
+                <p>Bạn cần giúp?</p>
+                <b>Hãy gọi</b><br>
+                <b>Hotline:</b> <p>1900000</p>
+                <p>Từ 7h30-21h hàng ngày</p>
+              </div>
+            </div>
+      
+            <!-- Cột 3: Mạng xã hội & Địa chỉ -->
+            <div class="footer-col">
+              <div class="social">
+                <b>Kết nối với chúng tôi</b>
+                <div class="icon-connect">
+                  <a href="https://www.facebook.com/?locale=vi_VN"><i class='bx bxl-facebook-circle'></i></a>
+                  <a href="https://www.instagram.com/accounts/login/"><i class='bx bxl-instagram'></i></a>
+                  <a href="https://www.youtube.com/@KhoaiLangThang"><i class='bx bxl-youtube'></i></a>
+                  <a href="https://www.tiktok.com/login?lang=vi-VN&redirect_url=https%3A%2F%2Fwww.tiktok.com%2Fupload%3Flang%3Dvi-VN"><i class='bx bxl-tiktok'></i></a>
+                  <a href="https://developers.line.biz/en/services/line-login/"><i class='bx bxs-phone'></i></a>
+                </div>
+              </div>
+      
+              <div class="address">
+                <b>Địa chỉ:</b> 705/7/5A, Đại lộ Bình Dương, Chánh Mỹ, Thủ Dầu Một, Bình Dương
+              </div>
+              <div class="logo">
+                <img src="img/Chụp màn hình từ 2025-04-11 15-59-12.png" alt="map" width="400">
+              </div>
+            </div>
+          </div>
+        </section>
+      </footer>
+</body>
+</html>

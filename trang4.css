@@ -1,0 +1,284 @@
+/* ===================== PHẦN BODY & CHUYỂN ĐỔI GIAO DIỆN ===================== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+body.light-theme {
+    background-color: #f4f4f4;
+    color: #333;
+}
+body.dark-theme {
+    background-color: #252525;
+    color: #eee;
+}
+
+/* ===================== PHẦN HEADER - THANH ĐIỀU HƯỚNG ===================== */
+
+/* ======= Menu (Header) ======= */
+.main-header {
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    padding: 10px 0;
+    font-family: 'Segoe UI', sans-serif;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  .dark-theme .main-header {
+    background-color: #333;
+    border-bottom: 1px solid #444;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  .main-header .container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    flex-wrap: wrap;
+  }
+  .logo a {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #0077cc;
+    transition: color 0.3s ease;
+  }
+  .dark-theme .logo a {
+    color: #0077cc;
+  }
+  .main-nav {
+    display: flex;
+    gap: 20px;
+  }
+  .main-nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 0;
+    transition: color 0.3s;
+  }
+  .dark-theme .main-nav a {
+    color: #eee;
+  }
+  .main-nav a:hover {
+    color: #0077cc !important;
+  }
+  /* search-box */
+  .search-box {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .search-box input {
+    padding: 6px 10px;
+    font-size: 14px;
+    font-family: 'Segoe UI', sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+  .dark-theme .search-box input{
+    background-color: #444;
+    color: #f8f8f8;
+  }
+  .search-box input:focus {
+    border-color: #0077cc;
+  }
+  
+  .search-box button {
+    padding: 6px 12px;
+    background-color: #0077cc;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  .search-box button:hover {
+    background-color: #005fa3;
+  }
+  
+  .theme-toggle {
+    padding: 6px 12px;
+    background-color: #0077cc;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .dark-theme .theme-toggle {
+    background-color: #0077cc;
+  }
+    /* ======= Suggestion Box ======= */
+    .suggestion-box {
+      position: absolute;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-top: none;
+      width: 240px;
+      max-height: 200px;
+      overflow-y: auto;
+      z-index: 1000;
+      display: none;
+    }
+    .suggestion-item {
+      padding: 8px 10px;
+      cursor: pointer;
+    }
+    .suggestion-item:hover {
+        background-color: #f0f0f0;
+      }
+/* ===================== PHẦN FORM ĐĂNG NHẬP ===================== */
+.form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s, border 0.3s, box-shadow 0.3s;
+}
+body.dark-theme .form-container {
+    background-color: #333;
+    color: #eee;
+    border: 2px solid #00bcd4;
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.5);
+}
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+body.dark-theme .form-group input {
+    background-color: #444;
+    color: #eee;
+    border-color: #666;
+}
+.form-group input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.form-container button:hover {
+    background-color: #2980b9;
+}
+.register-link {
+    text-align: center;
+    margin-top: 15px;
+}
+.register-link a {
+    color: #3498db;
+    text-decoration: none;
+}
+body.dark-theme .register-link a {
+    color: #66b0ff;
+}
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* ===================== PHẦN FOOTER ===================== */
+footer {
+    background-color: #313131;
+    color: #eee;
+    padding: 30px;
+    font-family: Arial, sans-serif;
+}
+.dark-theme footer {
+    background-color: #1a1a1a;
+}
+#gt {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.footer-col {
+    flex: 1;
+    min-width: 250px;
+}
+.footer-col h3, .footer-col b {
+    margin-top: 15px;
+}
+.footer-col a {
+    display: block;
+    color: #007BFF;
+    text-decoration: none;
+    margin: 5px 0;
+}
+.footer-col a:hover {
+    text-decoration: underline;
+}
+.icon-connect {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 10px;
+}
+.icon-connect a {
+    font-size: 24px;
+    color: #fff;
+    transition: 0.3s;
+}
+.dark-theme .icon-connect a {
+    color: #ccc;
+}
+.icon-connect a:hover {
+    color: #007BFF;
+}
+.certifications img, .logo img {
+    margin: 5px;
+    border-radius: 5px;
+}
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .footer-col {
+        width: 100%;
+    }
+}

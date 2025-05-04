@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="vn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Information</title>
+    <link rel="stylesheet" href="trang3.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="trangchu.js"></script>
+    <script src="search.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="trang1.html">Du Lịch và khám phá</a>
+            </div>
+            <nav class="main-nav">
+              <a href="trang1.html">Trang chủ</a>
+              <a href="trang2.html">Tour</a>
+              <a href="trang3.html">Voucher</a>
+              <a href="trang5.html">Chuyến bay</a>
+              <a href="trang4.html">Đăng nhập/Đăng ký</a>
+            </nav>
+            <div class="search-box">
+              <input type="text" id="search-input" oninput="showSuggestions()" placeholder="Tìm kiếm tour...">
+              <button>Tìm</button>
+              <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">Đổi giao diện</button>
+              <div id="suggestion-box" style="display: none;"></div>
+            </div>
+        </div>
+    </header>
+
+      <div class="Voucher-1-list">
+        <h2 class="td">Voucher thường</h2>
+            <div class="voucher-container">
+              <div class="voucher-item">
+                <img src="img/imag/voucher1.png" alt="Voucher 1">
+                <h3>Giảm 10% Tour Châu Âu</h3>
+                <p>Mã: EURO10</p>
+                <button onclick="applyVoucher(this)">Sử dụng ngay</button>
+              </div>
+          
+              <div class="voucher-item">
+                <img src="img/imag/voucher2.png" alt="Voucher 2">
+                <h3>Giảm 500K Tour Pháp</h3>
+                <p>Mã: PHAP500</p>
+                <button onclick="applyVoucher(this)">Sử dụng ngay</button>
+              </div>
+          
+              <div class="voucher-item">
+                <img src="img/imag/voucher3.png" alt="Voucher 3">
+                <h3>Tour Ý – Giảm 700K</h3>
+                <p>Mã: ITALY700</p>
+                <button onclick="applyVoucher(this)">Sử dụng ngay</button>
+              </div>
+          
+              <div class="voucher-item">
+                <img src="img/imag/voucher4.png" alt="Voucher 4">
+                <h3>Miễn phí vé tham quan Bỉ</h3>
+                <p>Mã: FREEBEL</p>
+                <button onclick="applyVoucher(this)">Sử dụng ngay</button>
+              </div>
+          
+              <div class="voucher-item">
+                <img src="img/imag/voucher5.png" alt="Voucher 5">
+                <h3>Giảm 15% Tour Đức</h3>
+                <p>Mã: DUC15</p>
+                <button onclick="applyVoucher(this)">Sử dụng ngay</button>
+              </div>
+          
+              <div class="voucher-item">
+                <img src="img/imag/voucher6.png" alt="Voucher 6">
+                <h3>Giảm 1 triệu cho nhóm 4 người</h3>
+                <p>Mã: NHOM4</p>
+                <button onclick="applyVoucher(this)">Sử dụng ngay</button>
+              </div>
+          
+              <div class="voucher-item">
+                <img src="img/imag/voucher7.png" alt="Voucher 7">
+                <h3>Tour Hà Lan – Ưu đãi 600K</h3>
+                <p>Mã: HOLAND600</p>
+                <button onclick="applyVoucher(this)">Sử dụng ngay</button>
+              </div>
+          
+              <div class="voucher-item">
+                <img src="img/imag/voucher8.png" alt="Voucher 8">
+                <h3>Combo Châu Âu – Giảm 20%</h3>
+                <p>Mã: EUROCOMBO20</p>
+                <button onclick="applyVoucher(this)">Sử dụng ngay</button>
+              </div>
+          
+              <div class="voucher-item">
+                <img src="img/imag/voucher8.png" alt="Voucher 9">
+                <h3>Voucher 300K cho khách mới</h3>
+                <p>Mã: NEW300</p>
+                <button onclick="applyVoucher(this)">Sử dụng ngay</button>
+              </div>
+          
+              <div class="voucher-item">
+                <img src="img/imag/voucher11.png" alt="Voucher 10">
+                <h3>Ưu đãi 12% mùa hè</h3>
+                <p>Mã: SUMMER12</p>
+                <button onclick="applyVoucher(this)">Sử dụng ngay</button>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="Voucher-2-list">
+      <h2 class="td">Voucher Extra</h2>
+        <div class="voucher-container">
+        <div class="voucher-item">
+            <img src="img/imag/voucher1.png" alt="Voucher 11">
+            <h3>Voucher VIP – Giảm 1.2 triệu</h3>
+            <p>Mã: VIP1200</p>
+            <button onclick="applyVoucher(this)">Sử dụng ngay</button>
+          </div>
+      
+          <div class="voucher-item">
+            <img src="img/imag/voucher2.png" alt="Voucher 12">
+            <h3>Giảm 5% cho thanh toán online</h3>
+            <p>Mã: PAYONLINE5</p>
+            <button onclick="applyVoucher(this)">Sử dụng ngay</button>
+          </div>
+      
+          <div class="voucher-item">
+            <img src="img/imag/voucher3.png" alt="Voucher 13">
+            <h3>Ưu đãi sinh nhật – 20%</h3>
+            <p>Mã: BIRTHDAY20</p>
+            <button onclick="applyVoucher(this)">Sử dụng ngay</button>
+          </div>
+      
+          <div class="voucher-item">
+            <img src="img/imag/voucher4.png" alt="Voucher 14">
+            <h3>Tour Hy Lạp – Giảm 800K</h3>
+            <p>Mã: GREECE800</p>
+            <button onclick="applyVoucher(this)">Sử dụng ngay</button>
+          </div>
+      
+          <div class="voucher-item">
+            <img src="img/imag/voucher5.png" alt="Voucher 15">
+            <h3>Châu Âu Mùa Đông – 10% Off</h3>
+            <p>Mã: WINTER10</p>
+            <button onclick="applyVoucher(this)">Sử dụng ngay</button>
+          </div>
+      
+          <div class="voucher-item">
+            <img src="img/imag/voucher6.png" alt="Voucher 16">
+            <h3>Voucher 1.5 triệu – Khách VIP</h3>
+            <p>Mã: VIP1500</p>
+            <button onclick="applyVoucher(this)">Sử dụng ngay</button>
+          </div>
+      
+          <div class="voucher-item">
+            <img src="img/imag/voucher7.png" alt="Voucher 17">
+            <h3>Ưu đãi nhóm trên 6 người</h3>
+            <p>Mã: GROUP6</p>
+            <button onclick="applyVoucher(this)">Sử dụng ngay</button>
+          </div>
+      
+          <div class="voucher-item">
+            <img src="img/imag/voucher8.png" alt="Voucher 18">
+            <h3>Giảm giá cho khách quay lại</h3>
+            <p>Mã: RETURN10</p>
+            <button onclick="applyVoucher(this)">Sử dụng ngay</button>
+          </div>
+      
+          <div class="voucher-item">
+            <img src="img/imag/voucher8.png" alt="Voucher 19">
+            <h3>Tour Tây Ban Nha – Giảm 900K</h3>
+            <p>Mã: SPAIN900</p>
+            <button onclick="applyVoucher(this)">Sử dụng ngay</button>
+          </div>
+      
+          <div class="voucher-item">
+            <img src="img/imag/voucher11.png" alt="Voucher 20">
+            <h3>Tour mùa thu – Giảm 7%</h3>
+            <p>Mã: AUTUMN7</p>
+            <button onclick="applyVoucher(this)">Sử dụng ngay</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+      <script>
+        function applyVoucher(button) {
+            button.textContent = "Đã áp dụng";
+            button.classList.add('clicked');
+            button.setAttribute("disabled", true); // Vô hiệu hóa nút sau khi bấm
+        }
+    </script>
+</body>
+<!-- footer -->
+<footer>
+  <section id="about-us">
+    <h2 id="gt">Giới Thiệu Về Chúng Tôi</h2>
+
+    <div class="footer-container">
+      <!-- Cột 1: Đối tác & Thông tin cần biết -->
+      <div class="footer-col">
+        <div class="ht">
+          <h3>Đối tác của chúng tôi</h3>
+          <a href="https://www.vietnamairlines.com/"><img src="img/VietNamAirlines.png"></a>
+          <a href="https://vnexpress.net/"><img src="img/vnExpress.png"></a>
+        </div>
+
+        <div class="info-links">
+          <h3>Thông tin cần biết</h3>
+          <a href="điều khoản.html">Điều khoản</a><br>
+          <a href="chính sách bảo mật .html">Chính sách bảo mật</a>
+        </div>
+      </div>
+
+      <!-- Cột 2: Chứng nhận & Liên hệ -->
+      <div class="footer-col">
+        <div class="certifications">
+          <h3>Chứng nhận</h3>
+          <img src="img/chứng nhận.png" alt="Chứng nhận 1" width="100">
+        </div>
+
+        <div id="lh">
+          <p>Bạn cần giúp?</p>
+          <b>Hãy gọi</b><br>
+          <b>Hotline:</b> <p>1900000</p>
+          <p>Từ 7h30-21h hàng ngày</p>
+        </div>
+      </div>
+
+      <!-- Cột 3: Mạng xã hội & Địa chỉ -->
+      <div class="footer-col">
+        <div class="social">
+          <b>Kết nối với chúng tôi</b>
+          <div class="icon-connect">
+            <a href="https://www.facebook.com/?locale=vi_VN"><i class='bx bxl-facebook-circle'></i></a>
+            <a href="https://www.instagram.com/accounts/login/"><i class='bx bxl-instagram'></i></a>
+            <a href="https://www.youtube.com/@KhoaiLangThang"><i class='bx bxl-youtube'></i></a>
+            <a href="https://www.tiktok.com/login?lang=vi-VN&redirect_url=https%3A%2F%2Fwww.tiktok.com%2Fupload%3Flang%3Dvi-VN"><i class='bx bxl-tiktok'></i></a>
+            <a href="https://developers.line.biz/en/services/line-login/"><i class='bx bxs-phone'></i></a>
+          </div>
+        </div>
+
+        <div class="address">
+          <b>Địa chỉ:</b> 705/7/5A, Đại lộ Bình Dương, Chánh Mỹ, Thủ Dầu Một, Bình Dương
+        </div>
+        <div class="logo">
+          <img src="img/Chụp màn hình từ 2025-04-11 15-59-12.png" alt="map" width="400">
+        </div>
+      </div>
+    </div>
+  </section>
+</footer>
+</html>

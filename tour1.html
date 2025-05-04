@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="vn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Pháp – Thụy Sĩ – Ý</title>
+    <link rel="stylesheet" href="chungtour.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="trangchu.js"></script>
+    <script src="Booking.js"></script>
+    <script src="search.js"></script>
+    <script src="payment.js"></script></head>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="trang1.html">Du Lịch và khám phá</a>
+            </div>
+            <nav class="main-nav">
+              <a href="trang1.html">Trang chủ</a>
+              <a href="trang2.html">Tour</a>
+              <a href="trang3.html">Voucher</a>
+              <a href="trang5.html">Chuyến bay</a>
+              <a href="trang4.html">Đăng nhập/Đăng ký</a>
+            </nav>
+            <div class="search-box">
+              <input type="text" id="search-input" oninput="showSuggestions()" placeholder="Tìm kiếm tour...">
+              <button>Tìm</button>
+              <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">Đổi giao diện</button>
+              <div id="suggestion-box" style="display: none;"></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="tour-detail-container">
+        <!-- ẢNH ĐẠI DIỆN -->
+        <div class="tour-banner">
+            <img src="img/anh1.jpeg" alt="Tour Pháp – Thụy Sĩ – Ý">
+        </div>
+
+        <!-- TÊN & THÔNG TIN -->
+        <div class="tour-info">
+            <h1>Tour Pháp – Thụy Sĩ – Ý 10N9Đ</h1>
+            <p class="tour-short-desc">Khám phá vẻ đẹp cổ kính và lãng mạn của Tây Âu</p>
+            <div class="tour-meta">
+                <span><strong>Thời gian:</strong> 10 ngày 9 đêm</span>
+                <span><strong>Khởi hành:</strong> 27/04/2025</span>
+                <span><strong>Nơi khởi hành:</strong> TP. Hồ Chí Minh</span>
+            </div>
+        </div> 
+
+        <!-- GIÁ & ƯU ĐÃI -->
+        <div class="tour-pricing">
+            <div class="original-price">Giá gốc: <del>76.900.000đ</del></div>
+            <div class="discount-price">Giá ưu đãi: <span>76.900.000đ</span></div>
+            <button onclick="startBooking('tour')" class="btn-book">Đặt tour ngay</button>
+          </div>
+
+        <!-- GIỚI THIỆU & LỊCH TRÌNH -->
+        <div class="tour-description">
+            <h2>Giới thiệu tour</h2>
+            <p>Tham gia hành trình khám phá 3 quốc gia Tây Âu: Pháp, Thụy Sĩ và Ý, nơi giao thoa giữa văn hóa cổ kính và kiến trúc hiện đại. Từ tháp Eiffel rực rỡ ở Paris, dãy Alps hùng vĩ ở Thụy Sĩ, đến những con kênh thơ mộng ở Venice và đấu trường La Mã ở Rome, tour này mang đến trải nghiệm đa dạng về cảnh quan, lịch sử và ẩm thực đặc trưng của châu Âu.</p>
+
+            <h2>Lịch trình dự kiến</h2>
+            <ul class="tour-itinerary">
+                <li><strong>Ngày 1:</strong> TP.HCM – Paris – Làm thủ tục bay, nghỉ đêm trên máy bay</li>
+                <li><strong>Ngày 2:</strong> Paris – Tham quan tháp Eiffel, Khải Hoàn Môn, đại lộ Champs-Élysées, du thuyền sông Seine</li>
+                <li><strong>Ngày 3:</strong> Paris – Khám phá bảo tàng Louvre, nhà thờ Đức Bà, cung điện Versailles</li>
+                <li><strong>Ngày 4:</strong> Paris – Strasbourg – Tham quan phố cổ La Petite France, nhà thờ Strasbourg</li>
+                <li><strong>Ngày 5:</strong> Strasbourg – Lucerne – Tham quan cầu Chapel, hồ Lucerne, lên đỉnh Titlis bằng cáp treo</li>
+                <li><strong>Ngày 6:</strong> Lucerne – Milan – Tham quan nhà thờ Duomo, nhà hát La Scala, Galleria Vittorio Emanuele II</li>
+                <li><strong>Ngày 7:</strong> Milan – Venice – Tham quan quảng trường San Marco, cầu Than Thở, xưởng thủy tinh Murano</li>
+                <li><strong>Ngày 8:</strong> Venice – Pisa – Tham quan tháp nghiêng Pisa, quảng trường Miracles</li>
+                <li><strong>Ngày 9:</strong> Pisa – Rome – Tham quan đấu trường La Mã, đài phun nước Trevi, quảng trường Thánh Phêrô</li>
+                <li><strong>Ngày 10:</strong> Rome – TP.HCM – Làm thủ tục bay về Việt Nam, kết thúc hành trình</li>
+            </ul>
+
+            <h2>Dịch vụ bao gồm</h2>
+            <ul>
+                <li>Vé máy bay khứ hồi TP.HCM – Paris/Rome – TP.HCM (hãng 5 sao như Qatar Airways, Turkish Airlines hoặc tương đương)</li>
+                <li>Khách sạn 4 sao tiêu chuẩn quốc tế (phòng đôi/đơn, đầy đủ tiện nghi, wifi miễn phí)</li>
+                <li>Hướng dẫn viên chuyên nghiệp tiếng Việt, thông thạo văn hóa và lịch sử châu Âu</li>
+                <li>Vé tham quan tất cả các điểm theo chương trình (tháp Eiffel, bảo tàng Louvre, du thuyền sông Seine, cáp treo Titlis, đấu trường La Mã, v.v.)</li>
+                <li>Ăn uống theo chương trình (bữa sáng buffet, bữa trưa và tối với các món đặc sản như bánh macaron Pháp, fondue Thụy Sĩ, pizza Ý)</li>
+                <li>Bảo hiểm du lịch quốc tế (mức bồi thường tối đa 2.000.000.000 VNĐ/người/vụ)</li>
+                <li>Xe đưa đón đời mới, máy lạnh, wifi miễn phí trên xe</li>
+                <li>Du thuyền tham quan sông Seine và kênh Venice</li>
+                <li>Nước uống miễn phí (2 chai/ngày/người) và khăn lạnh trên xe</li>
+                <li>Quà lưu niệm đặc biệt: bản đồ châu Âu, album ảnh kỷ niệm chuyến đi</li>
+                <li>Hỗ trợ thủ tục visa Schengen và tư vấn check-in sân bay</li>
+                <li>Hướng dẫn mua sắm đặc sản châu Âu (phô mai Thụy Sĩ, sô-cô-la Ý, nước hoa Pháp)</li>
+            </ul>
+        </div>
+
+        <!-- ĐÁNH GIÁ -->
+        <div class="tour-rating-box">
+            <h2>Đánh giá từ khách hàng</h2>
+            <div class="tour-rating">⭐ 4.2/5</div>
+        </div>
+    </div>
+
+    <footer>
+      <section id="about-us">
+        <h2 id="gt">Giới Thiệu Về Chúng Tôi</h2>
+    
+        <div class="footer-container">
+          <!-- Cột 1: Đối tác & Thông tin cần biết -->
+          <div class="footer-col">
+            <div class="ht">
+              <h3>Đối tác của chúng tôi</h3>
+              <a href="https://www.vietnamairlines.com/"><img src="img/VietNamAirlines.png"></a>
+              <a href="https://vnexpress.net/"><img src="img/vnExpress.png"></a>
+            </div>
+    
+            <div class="info-links">
+              <h3>Thông tin cần biết</h3>
+              <a href="điều khoản.html">Điều khoản</a><br>
+              <a href="chính sách bảo mật .html">Chính sách bảo mật</a>
+            </div>
+          </div>
+    
+          <!-- Cột 2: Chứng nhận & Liên hệ -->
+          <div class="footer-col">
+            <div class="certifications">
+              <h3>Chứng nhận</h3>
+              <img src="img/chứng nhận.png" alt="Chứng nhận 1" width="100">
+            </div>
+    
+            <div id="lh">
+              <p>Bạn cần giúp?</p>
+              <b>Hãy gọi</b><br>
+              <b>Hotline:</b> <p>1900000</p>
+              <p>Từ 7h30-21h hàng ngày</p>
+            </div>
+          </div>
+    
+          <!-- Cột 3: Mạng xã hội & Địa chỉ -->
+          <div class="footer-col">
+            <div class="social">
+              <b>Kết nối với chúng tôi</b>
+              <div class="icon-connect">
+                <a href="https://www.facebook.com/?locale=vi_VN"><i class='bx bxl-facebook-circle'></i></a>
+                <a href="https://www.instagram.com/accounts/login/"><i class='bx bxl-instagram'></i></a>
+                <a href="https://www.youtube.com/@KhoaiLangThang"><i class='bx bxl-youtube'></i></a>
+                <a href="https://www.tiktok.com/login?lang=vi-VN&redirect_url=https%3A%2F%2Fwww.tiktok.com%2Fupload%3Flang%3Dvi-VN"><i class='bx bxl-tiktok'></i></a>
+                <a href="https://developers.line.biz/en/services/line-login/"><i class='bx bxs-phone'></i></a>
+              </div>
+            </div>
+    
+            <div class="address">
+              <b>Địa chỉ:</b> 705/7/5A, Đại lộ Bình Dương, Chánh Mỹ, Thủ Dầu Một, Bình Dương
+            </div>
+            <div class="logo">
+              <img src="img/Chụp màn hình từ 2025-04-11 15-59-12.png" alt="map" width="400">
+            </div>
+          </div>
+        </div>
+      </section>
+    </footer>
+</body>
+</html>
