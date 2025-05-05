@@ -1,145 +1,131 @@
-/* ======= CÀI ĐẶT CHUNG CHO BODY ======= */
-body {
-  font-family: Arial, sans-serif; 
-  margin: 0; 
+/* ======= Reset ======= */
+* {
+  margin: 0;
   padding: 0;
-  transition: background-color 0.3s, color 0.3s;
+  box-sizing: border-box;
 }
 
-/* Giao diện sáng */
+/* ======= Body ======= */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background-color: #f5f5f5;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
 body.light-theme {
   background-color: #f5f5f5;
   color: #333;
 }
-
-/* Giao diện tối */
 body.dark-theme {
-  background-color: #252525;
-  color: #eee;
+  background-color: #1e1e1e;
+  color: #f0f0f0;
 }
 
-/* ======= HEADER ======= */
+/* ======= Menu (Header) ======= */
 .main-header {
-  background-color: #fff;  
-  border-bottom: 1px solid #eee;  /* Viền dưới mờ */
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  padding: 10px 0;  /* Khoảng cách bên trong header */
-  font-family: Arial, sans-serif; 
-  position: sticky;  /* Header cố định khi cuộn trang */
-  top: 0; 
+  padding: 10px 0;
+  font-family: 'Segoe UI', sans-serif;
+  position: sticky;
+  top: 0;
   z-index: 1000;
 }
-
-/* Header khi ở chế độ tối */
-body.dark-theme .main-header {
-  background-color: #333; 
+.dark-theme .main-header {
+  background-color: #333;
+  border-bottom: 1px solid #444;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
-
-/* Container trong header, chứa logo và menu */
 .main-header .container {
-  max-width: 1200px; 
-  margin: auto;  /* Căn giữa */
-  display: flex;  /* Sử dụng flexbox */
-  align-items: center;  /* Căn giữa theo chiều dọc */
-  justify-content: space-between;  /* Căn đều các phần tử */
-  padding: 0 20px;  /* Padding trái phải */
-  flex-wrap: wrap;  /* Cho phép các phần tử trong container quấn khi cần */
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  flex-wrap: wrap;
 }
-
-/* Logo trong header */
 .logo a {
-  font-size: 20px; 
-  font-weight: bold; 
-  text-decoration: none; 
-  color:#0077cc;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #0077cc;
+  transition: color 0.3s ease;
 }
-
-/* Màu logo khi ở chế độ tối */
-body.dark-theme .logo a {
-  color:#0077cc;
+.dark-theme .logo a {
+  color: #0077cc;
 }
-
-/* Menu điều hướng */
 .main-nav {
-  display: flex;  /* Sử dụng flexbox */
-  gap: 20px;  /* Khoảng cách giữa các mục menu */
+  display: flex;
+  gap: 20px;
 }
-
-/* Màu chữ menu theo chế độ sáng */
-body.light-theme .main-nav a {
-  color: #000;
-}
-
-/* Màu chữ menu theo chế độ tối */
-body.dark-theme .main-nav a {
-  color: #fff; 
-}
-
-/* Link trong menu */
 .main-nav a {
-  text-decoration: none; 
-  font-size: 14px; 
-  padding: 6px 0; 
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 0;
   transition: color 0.3s;
 }
-.main-nav a:hover {
-  color: #0077cc;  /* Màu khi hover */
-}
-
-/* ======= TÌM KIẾM ======= */
-.search-box {
-  display: flex;  /* Sử dụng flexbox */
-  gap: 6px;  /* Khoảng cách giữa các phần tử */
-  align-items: center;  /* Căn giữa theo chiều dọc */
-}
-
-/* Ô nhập tìm kiếm */
-.search-box input {
-  padding: 6px 10px;  /* Padding cho input */
-  font-size: 14px;  
-  border: 1px solid #ccc;
-  border-radius: 4px;  /* Bo góc */
-}
-
-/* Ô nhập tìm kiếm khi ở chế độ tối */
-body.dark-theme .search-box input {
-  background-color: #444; 
+.dark-theme .main-nav a {
   color: #eee;
-  border: 1px solid #666; 
 }
-
-/* Nút tìm kiếm */
-.search-box button {
-  padding: 6px 12px; 
-  background-color: #0077cc; 
-  color: #fff; 
-  border: none; 
+.main-nav a:hover {
+  color: #0077cc !important;
+}
+/* search-box */
+.search-box {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.search-box input {
+  padding: 6px 10px;
+  font-size: 14px;
+  font-family: 'Segoe UI', sans-serif;
+  border: 1px solid #ccc;
   border-radius: 4px;
-  cursor: pointer;  /* Con trỏ khi hover */
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.dark-theme .search-box input{
+  background-color: #444;
+  color: #f8f8f8;
+}
+.search-box input:focus {
+  border-color: #0077cc;
 }
 
-/* Nút tìm kiếm khi ở chế độ tối */
-body.dark-theme .search-box button {
+.search-box button {
+  padding: 6px 12px;
   background-color: #0077cc;
-}
-
-/* ======= CHUYỂN GIAO DIỆN THEME ======= */
-.theme-toggle {
-  padding: 6px 12px; 
-  background-color: #0077cc; 
   color: #fff;
+  font-family: 'Segoe UI', sans-serif;
   border: none;
   border-radius: 4px;
-  cursor: pointer;  /* Con trỏ khi hover */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.search-box button:hover {
+  background-color: #005fa3;
 }
 
-/* Nút chuyển theme khi ở chế độ tối */
-body.dark-theme .theme-toggle {
-  background-color: #0077cc; 
+.theme-toggle {
+  padding: 6px 12px;
+  background-color: #0077cc;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
-
- /* ======= Suggestion Box ======= */
- .suggestion-box {
+.dark-theme .theme-toggle {
+  background-color: #0077cc;
+}
+/* suggestions */
+.suggestion-box {
   position: absolute;
   background-color: white;
   border: 1px solid #ccc;
@@ -150,10 +136,12 @@ body.dark-theme .theme-toggle {
   z-index: 1000;
   display: none;
 }
+
 .suggestion-item {
   padding: 8px 10px;
   cursor: pointer;
 }
+
 .suggestion-item:hover {
   background-color: #04bbe9;
 }
